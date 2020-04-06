@@ -1,0 +1,790 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		340AB5AC214D2C7100C7B2AC /* DMCreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340AB5AB214D2C7100C7B2AC /* DMCreateAccountViewController.swift */; };
+		340AB5AE214D2C8600C7B2AC /* DMCreateAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340AB5AD214D2C8600C7B2AC /* DMCreateAccountModel.swift */; };
+		340AB5B1214D404100C7B2AC /* DMUserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340AB5B0214D404100C7B2AC /* DMUserAccount.swift */; };
+		340AB5B3214D405600C7B2AC /* DMUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340AB5B2214D405600C7B2AC /* DMUserManager.swift */; };
+		340AB5B5214D429900C7B2AC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 340AB5B4214D429800C7B2AC /* GoogleService-Info.plist */; };
+		3423AE1E21558CB100BFABEB /* DMHomeSearchHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423AE1D21558CB100BFABEB /* DMHomeSearchHeader.swift */; };
+		3442A19621615CA4006B3BB5 /* DMEditDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3442A19521615CA4006B3BB5 /* DMEditDemoViewController.swift */; };
+		3442A19821615CBA006B3BB5 /* DMNewDemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3442A19721615CBA006B3BB5 /* DMNewDemoModel.swift */; };
+		3442A19A21615D45006B3BB5 /* DMDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3442A19921615D45006B3BB5 /* DMDemo.swift */; };
+		3442A19C21622B03006B3BB5 /* DMDealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3442A19B21622B03006B3BB5 /* DMDealer.swift */; };
+		3442A1AA216249FC006B3BB5 /* DMHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3442A1A5216249FC006B3BB5 /* DMHomeModel.swift */; };
+		3442A1AB216249FC006B3BB5 /* DMHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3442A1A6216249FC006B3BB5 /* DMHomeViewController.swift */; };
+		3442A1AC216249FC006B3BB5 /* DMDealerInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3442A1A8216249FC006B3BB5 /* DMDealerInfoModel.swift */; };
+		3442A1AD216249FC006B3BB5 /* DMDealerInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3442A1A9216249FC006B3BB5 /* DMDealerInfoViewController.swift */; };
+		3442A1AF21624A17006B3BB5 /* DMBaseMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3442A1AE21624A17006B3BB5 /* DMBaseMainViewController.swift */; };
+		3442A1B121624AC3006B3BB5 /* DMBaseMainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3442A1B021624AC3006B3BB5 /* DMBaseMainModel.swift */; };
+		3446C9D9217494B90081F6A0 /* DMSettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3446C9D8217494B90081F6A0 /* DMSettingModel.swift */; };
+		3446C9DB217494D90081F6A0 /* DMSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3446C9DA217494D90081F6A0 /* DMSettingViewController.swift */; };
+		34489383214D1F7100667D1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34489382214D1F7100667D1F /* AppDelegate.swift */; };
+		34489388214D1F7100667D1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34489386214D1F7100667D1F /* Main.storyboard */; };
+		3448938A214D1F7300667D1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34489389214D1F7300667D1F /* Assets.xcassets */; };
+		3448938D214D1F7300667D1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3448938B214D1F7300667D1F /* LaunchScreen.storyboard */; };
+		3448939B214D20D200667D1F /* DMLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3448939A214D20D200667D1F /* DMLoginViewController.swift */; };
+		3448939F214D21AB00667D1F /* DMLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3448939E214D21AB00667D1F /* DMLoginModel.swift */; };
+		344893A4214D237D00667D1F /* DMBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344893A1214D237D00667D1F /* DMBaseModel.swift */; };
+		344893A5214D237D00667D1F /* DMBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344893A3214D237D00667D1F /* DMBaseViewController.swift */; };
+		344893A9214D256100667D1F /* DMKeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344893A8214D256100667D1F /* DMKeyboardViewController.swift */; };
+		344893AB214D28C200667D1F /* DMRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344893AA214D28C200667D1F /* DMRoundButton.swift */; };
+		345D1DF9214F092A003060DE /* ExpandableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D1DF8214F092A003060DE /* ExpandableTextView.swift */; };
+		345D1DFB214FA638003060DE /* DMDateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D1DFA214FA638003060DE /* DMDateTextField.swift */; };
+		346778ED21D5245B00013BA7 /* DMSelectItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346778EC21D5245B00013BA7 /* DMSelectItemViewController.swift */; };
+		346778F121D524B600013BA7 /* DMSelectItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346778F021D524B600013BA7 /* DMSelectItemModel.swift */; };
+		346778F321D5258500013BA7 /* DMSelectItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346778F221D5258500013BA7 /* DMSelectItemView.swift */; };
+		346778FD21D95A3300013BA7 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346778FC21D95A3300013BA7 /* ImageViewModel.swift */; };
+		3475FDB4214EF4EE008D57F9 /* DMNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3475FDB3214EF4ED008D57F9 /* DMNavigationController.swift */; };
+		3475FDB7214EF654008D57F9 /* DMSettingPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3475FDB6214EF654008D57F9 /* DMSettingPopover.swift */; };
+		3475FDB9214EF67C008D57F9 /* DMSettingPopoverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3475FDB8214EF67C008D57F9 /* DMSettingPopoverModel.swift */; };
+		3475FDCE214EFE20008D57F9 /* DMNewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3475FDC7214EFE20008D57F9 /* DMNewItemViewController.swift */; };
+		3475FDCF214EFE20008D57F9 /* DMNewSolicitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3475FDC9214EFE20008D57F9 /* DMNewSolicitModel.swift */; };
+		3475FDD0214EFE20008D57F9 /* DMEditSolicitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3475FDCA214EFE20008D57F9 /* DMEditSolicitViewController.swift */; };
+		3475FDD1214EFE20008D57F9 /* DMNewSaleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3475FDCC214EFE20008D57F9 /* DMNewSaleModel.swift */; };
+		3475FDD5214F0175008D57F9 /* DMBaseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3475FDD4214F0175008D57F9 /* DMBaseTextField.swift */; };
+		3475FDD7214F018E008D57F9 /* DMItemTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3475FDD6214F018E008D57F9 /* DMItemTextField.swift */; };
+		34D1A28F214F04C4004F1ECD /* DMBaseTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D1A28E214F04C4004F1ECD /* DMBaseTextView.swift */; };
+		34E434F6215782590097D6A3 /* DMItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E434F5215782590097D6A3 /* DMItem.swift */; };
+		34E434F8215783650097D6A3 /* DMSale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E434F7215783650097D6A3 /* DMSale.swift */; };
+		34E434FA2157837B0097D6A3 /* DMSolicit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E434F92157837B0097D6A3 /* DMSolicit.swift */; };
+		34E434FC21580E790097D6A3 /* DMNewItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E434FB21580E790097D6A3 /* DMNewItemModel.swift */; };
+		34E435002158219C0097D6A3 /* DMBaseHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E434FF2158219C0097D6A3 /* DMBaseHomeCell.swift */; };
+		34E43502215821B40097D6A3 /* DMSaleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E43501215821B40097D6A3 /* DMSaleCell.swift */; };
+		34E43504215821DD0097D6A3 /* DMDemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E43503215821DD0097D6A3 /* DMDemoCell.swift */; };
+		34E43506215821EB0097D6A3 /* DMSolicitsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E43505215821EB0097D6A3 /* DMSolicitsCell.swift */; };
+		34E435082158220A0097D6A3 /* DMDealerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E435072158220A0097D6A3 /* DMDealerCell.swift */; };
+		34E4350A2158EF130097D6A3 /* DMEditSaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E435092158EF130097D6A3 /* DMEditSaleViewController.swift */; };
+		34E4350C21590D850097D6A3 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E4350B21590D850097D6A3 /* Utils.swift */; };
+		CB226658183EEF2E55D837DB /* Pods_DealerMutual.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7BC09C2AE11DD302BF26B3F /* Pods_DealerMutual.framework */; };
+		FDD2F94E243B0FDA00CF90D5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDD2F94D243B0FD900CF90D5 /* AVFoundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		11FB157233D47CAD5C783F62 /* Pods-DealerMutual.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DealerMutual.release.xcconfig"; path = "Pods/Target Support Files/Pods-DealerMutual/Pods-DealerMutual.release.xcconfig"; sourceTree = "<group>"; };
+		340AB5AB214D2C7100C7B2AC /* DMCreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMCreateAccountViewController.swift; sourceTree = "<group>"; };
+		340AB5AD214D2C8600C7B2AC /* DMCreateAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMCreateAccountModel.swift; sourceTree = "<group>"; };
+		340AB5B0214D404100C7B2AC /* DMUserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMUserAccount.swift; sourceTree = "<group>"; };
+		340AB5B2214D405600C7B2AC /* DMUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMUserManager.swift; sourceTree = "<group>"; };
+		340AB5B4214D429800C7B2AC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3423AE1D21558CB100BFABEB /* DMHomeSearchHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMHomeSearchHeader.swift; sourceTree = "<group>"; };
+		3442A19521615CA4006B3BB5 /* DMEditDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMEditDemoViewController.swift; sourceTree = "<group>"; };
+		3442A19721615CBA006B3BB5 /* DMNewDemoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMNewDemoModel.swift; sourceTree = "<group>"; };
+		3442A19921615D45006B3BB5 /* DMDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMDemo.swift; sourceTree = "<group>"; };
+		3442A19B21622B03006B3BB5 /* DMDealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMDealer.swift; sourceTree = "<group>"; };
+		3442A1A5216249FC006B3BB5 /* DMHomeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMHomeModel.swift; sourceTree = "<group>"; };
+		3442A1A6216249FC006B3BB5 /* DMHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMHomeViewController.swift; sourceTree = "<group>"; };
+		3442A1A8216249FC006B3BB5 /* DMDealerInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMDealerInfoModel.swift; sourceTree = "<group>"; };
+		3442A1A9216249FC006B3BB5 /* DMDealerInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMDealerInfoViewController.swift; sourceTree = "<group>"; };
+		3442A1AE21624A17006B3BB5 /* DMBaseMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMBaseMainViewController.swift; sourceTree = "<group>"; };
+		3442A1B021624AC3006B3BB5 /* DMBaseMainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMBaseMainModel.swift; sourceTree = "<group>"; };
+		3446C9D8217494B90081F6A0 /* DMSettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMSettingModel.swift; sourceTree = "<group>"; };
+		3446C9DA217494D90081F6A0 /* DMSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMSettingViewController.swift; sourceTree = "<group>"; };
+		3448937F214D1F7100667D1F /* DealerMutual.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DealerMutual.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		34489382214D1F7100667D1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		34489387214D1F7100667D1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		34489389214D1F7300667D1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3448938C214D1F7300667D1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3448938E214D1F7300667D1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3448939A214D20D200667D1F /* DMLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMLoginViewController.swift; sourceTree = "<group>"; };
+		3448939E214D21AB00667D1F /* DMLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMLoginModel.swift; sourceTree = "<group>"; };
+		344893A1214D237D00667D1F /* DMBaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMBaseModel.swift; sourceTree = "<group>"; };
+		344893A3214D237D00667D1F /* DMBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMBaseViewController.swift; sourceTree = "<group>"; };
+		344893A8214D256100667D1F /* DMKeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMKeyboardViewController.swift; sourceTree = "<group>"; };
+		344893AA214D28C200667D1F /* DMRoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMRoundButton.swift; sourceTree = "<group>"; };
+		345D1DF8214F092A003060DE /* ExpandableTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableTextView.swift; sourceTree = "<group>"; };
+		345D1DFA214FA638003060DE /* DMDateTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMDateTextField.swift; sourceTree = "<group>"; };
+		346778EC21D5245B00013BA7 /* DMSelectItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMSelectItemViewController.swift; sourceTree = "<group>"; };
+		346778F021D524B600013BA7 /* DMSelectItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMSelectItemModel.swift; sourceTree = "<group>"; };
+		346778F221D5258500013BA7 /* DMSelectItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMSelectItemView.swift; sourceTree = "<group>"; };
+		346778FC21D95A3300013BA7 /* ImageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
+		3475FDB3214EF4ED008D57F9 /* DMNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMNavigationController.swift; sourceTree = "<group>"; };
+		3475FDB6214EF654008D57F9 /* DMSettingPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMSettingPopover.swift; sourceTree = "<group>"; };
+		3475FDB8214EF67C008D57F9 /* DMSettingPopoverModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMSettingPopoverModel.swift; sourceTree = "<group>"; };
+		3475FDC7214EFE20008D57F9 /* DMNewItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMNewItemViewController.swift; sourceTree = "<group>"; };
+		3475FDC9214EFE20008D57F9 /* DMNewSolicitModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMNewSolicitModel.swift; sourceTree = "<group>"; };
+		3475FDCA214EFE20008D57F9 /* DMEditSolicitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMEditSolicitViewController.swift; sourceTree = "<group>"; };
+		3475FDCC214EFE20008D57F9 /* DMNewSaleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMNewSaleModel.swift; sourceTree = "<group>"; };
+		3475FDD4214F0175008D57F9 /* DMBaseTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMBaseTextField.swift; sourceTree = "<group>"; };
+		3475FDD6214F018E008D57F9 /* DMItemTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMItemTextField.swift; sourceTree = "<group>"; };
+		34D1A28E214F04C4004F1ECD /* DMBaseTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMBaseTextView.swift; sourceTree = "<group>"; };
+		34E434F5215782590097D6A3 /* DMItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMItem.swift; sourceTree = "<group>"; };
+		34E434F7215783650097D6A3 /* DMSale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMSale.swift; sourceTree = "<group>"; };
+		34E434F92157837B0097D6A3 /* DMSolicit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMSolicit.swift; sourceTree = "<group>"; };
+		34E434FB21580E790097D6A3 /* DMNewItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMNewItemModel.swift; sourceTree = "<group>"; };
+		34E434FF2158219C0097D6A3 /* DMBaseHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMBaseHomeCell.swift; sourceTree = "<group>"; };
+		34E43501215821B40097D6A3 /* DMSaleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMSaleCell.swift; sourceTree = "<group>"; };
+		34E43503215821DD0097D6A3 /* DMDemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMDemoCell.swift; sourceTree = "<group>"; };
+		34E43505215821EB0097D6A3 /* DMSolicitsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMSolicitsCell.swift; sourceTree = "<group>"; };
+		34E435072158220A0097D6A3 /* DMDealerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMDealerCell.swift; sourceTree = "<group>"; };
+		34E435092158EF130097D6A3 /* DMEditSaleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMEditSaleViewController.swift; sourceTree = "<group>"; };
+		34E4350B21590D850097D6A3 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		48DEE8CA31A442D32EC33BDE /* Pods-DealerMutual.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DealerMutual.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DealerMutual/Pods-DealerMutual.debug.xcconfig"; sourceTree = "<group>"; };
+		7D726615234D1C5900056F58 /* DealerMutual.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DealerMutual.entitlements; sourceTree = "<group>"; };
+		F7BC09C2AE11DD302BF26B3F /* Pods_DealerMutual.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DealerMutual.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDD2F94D243B0FD900CF90D5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3448937C214D1F7100667D1F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDD2F94E243B0FDA00CF90D5 /* AVFoundation.framework in Frameworks */,
+				CB226658183EEF2E55D837DB /* Pods_DealerMutual.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		340AB5AF214D403400C7B2AC /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				340AB5B0214D404100C7B2AC /* DMUserAccount.swift */,
+				340AB5B2214D405600C7B2AC /* DMUserManager.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		3442A19421615C83006B3BB5 /* NewDemo */ = {
+			isa = PBXGroup;
+			children = (
+				3442A19521615CA4006B3BB5 /* DMEditDemoViewController.swift */,
+				3442A19721615CBA006B3BB5 /* DMNewDemoModel.swift */,
+			);
+			path = NewDemo;
+			sourceTree = "<group>";
+		};
+		3442A1A3216249FC006B3BB5 /* MainScreens */ = {
+			isa = PBXGroup;
+			children = (
+				346778EB21D5244200013BA7 /* Select */,
+				3442A1A4216249FC006B3BB5 /* Home */,
+				3442A1A7216249FC006B3BB5 /* DealerInfo */,
+				3442A1AE21624A17006B3BB5 /* DMBaseMainViewController.swift */,
+				3442A1B021624AC3006B3BB5 /* DMBaseMainModel.swift */,
+			);
+			path = MainScreens;
+			sourceTree = "<group>";
+		};
+		3442A1A4216249FC006B3BB5 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3442A1A5216249FC006B3BB5 /* DMHomeModel.swift */,
+				3442A1A6216249FC006B3BB5 /* DMHomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		3442A1A7216249FC006B3BB5 /* DealerInfo */ = {
+			isa = PBXGroup;
+			children = (
+				3442A1A8216249FC006B3BB5 /* DMDealerInfoModel.swift */,
+				3442A1A9216249FC006B3BB5 /* DMDealerInfoViewController.swift */,
+			);
+			path = DealerInfo;
+			sourceTree = "<group>";
+		};
+		3446C9D7217494A40081F6A0 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				3446C9D8217494B90081F6A0 /* DMSettingModel.swift */,
+				3446C9DA217494D90081F6A0 /* DMSettingViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		34489376214D1F7100667D1F = {
+			isa = PBXGroup;
+			children = (
+				34489381214D1F7100667D1F /* DealerMutual */,
+				34489380214D1F7100667D1F /* Products */,
+				611158B03C7A5D036F54F780 /* Pods */,
+				5A7BE1C55F8D22C9FB3571F1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		34489380214D1F7100667D1F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3448937F214D1F7100667D1F /* DealerMutual.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		34489381214D1F7100667D1F /* DealerMutual */ = {
+			isa = PBXGroup;
+			children = (
+				7D726615234D1C5900056F58 /* DealerMutual.entitlements */,
+				34489394214D1FEA00667D1F /* Class */,
+				34489382214D1F7100667D1F /* AppDelegate.swift */,
+				34489386214D1F7100667D1F /* Main.storyboard */,
+				34489389214D1F7300667D1F /* Assets.xcassets */,
+				3448938B214D1F7300667D1F /* LaunchScreen.storyboard */,
+				3448938E214D1F7300667D1F /* Info.plist */,
+				340AB5B4214D429800C7B2AC /* GoogleService-Info.plist */,
+			);
+			path = DealerMutual;
+			sourceTree = "<group>";
+		};
+		34489394214D1FEA00667D1F /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				346778FC21D95A3300013BA7 /* ImageViewModel.swift */,
+				3442A1A3216249FC006B3BB5 /* MainScreens */,
+				34E434F42157821C0097D6A3 /* Entity */,
+				3475FDB5214EF63D008D57F9 /* Popover */,
+				340AB5AF214D403400C7B2AC /* Account */,
+				344893A0214D237D00667D1F /* Base */,
+				34489395214D1FFE00667D1F /* Auth */,
+				34E4350B21590D850097D6A3 /* Utils.swift */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		34489395214D1FFE00667D1F /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				34489396214D201A00667D1F /* CreateAccount */,
+				34489397214D201B00667D1F /* Login */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		34489396214D201A00667D1F /* CreateAccount */ = {
+			isa = PBXGroup;
+			children = (
+				340AB5AB214D2C7100C7B2AC /* DMCreateAccountViewController.swift */,
+				340AB5AD214D2C8600C7B2AC /* DMCreateAccountModel.swift */,
+			);
+			path = CreateAccount;
+			sourceTree = "<group>";
+		};
+		34489397214D201B00667D1F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3448939A214D20D200667D1F /* DMLoginViewController.swift */,
+				3448939E214D21AB00667D1F /* DMLoginModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		344893A0214D237D00667D1F /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				344893A1214D237D00667D1F /* DMBaseModel.swift */,
+				344893A3214D237D00667D1F /* DMBaseViewController.swift */,
+				344893A8214D256100667D1F /* DMKeyboardViewController.swift */,
+				3475FDB3214EF4ED008D57F9 /* DMNavigationController.swift */,
+				344893A2214D237D00667D1F /* View */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		344893A2214D237D00667D1F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				34E434FD2158217D0097D6A3 /* Cell */,
+				3475FDD3214F0175008D57F9 /* TextInput */,
+				344893AA214D28C200667D1F /* DMRoundButton.swift */,
+				3423AE1D21558CB100BFABEB /* DMHomeSearchHeader.swift */,
+				346778F221D5258500013BA7 /* DMSelectItemView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		346778EB21D5244200013BA7 /* Select */ = {
+			isa = PBXGroup;
+			children = (
+				346778EC21D5245B00013BA7 /* DMSelectItemViewController.swift */,
+				346778F021D524B600013BA7 /* DMSelectItemModel.swift */,
+			);
+			path = Select;
+			sourceTree = "<group>";
+		};
+		3475FDB5214EF63D008D57F9 /* Popover */ = {
+			isa = PBXGroup;
+			children = (
+				3446C9D7217494A40081F6A0 /* Settings */,
+				3475FDC6214EFE20008D57F9 /* Items */,
+				3475FDB6214EF654008D57F9 /* DMSettingPopover.swift */,
+				3475FDB8214EF67C008D57F9 /* DMSettingPopoverModel.swift */,
+			);
+			path = Popover;
+			sourceTree = "<group>";
+		};
+		3475FDC6214EFE20008D57F9 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				3442A19421615C83006B3BB5 /* NewDemo */,
+				3475FDC7214EFE20008D57F9 /* DMNewItemViewController.swift */,
+				34E434FB21580E790097D6A3 /* DMNewItemModel.swift */,
+				3475FDC8214EFE20008D57F9 /* NewSolicit */,
+				3475FDCB214EFE20008D57F9 /* NewSale */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		3475FDC8214EFE20008D57F9 /* NewSolicit */ = {
+			isa = PBXGroup;
+			children = (
+				3475FDC9214EFE20008D57F9 /* DMNewSolicitModel.swift */,
+				3475FDCA214EFE20008D57F9 /* DMEditSolicitViewController.swift */,
+			);
+			path = NewSolicit;
+			sourceTree = "<group>";
+		};
+		3475FDCB214EFE20008D57F9 /* NewSale */ = {
+			isa = PBXGroup;
+			children = (
+				34E435092158EF130097D6A3 /* DMEditSaleViewController.swift */,
+				3475FDCC214EFE20008D57F9 /* DMNewSaleModel.swift */,
+			);
+			path = NewSale;
+			sourceTree = "<group>";
+		};
+		3475FDD3214F0175008D57F9 /* TextInput */ = {
+			isa = PBXGroup;
+			children = (
+				345D1DF8214F092A003060DE /* ExpandableTextView.swift */,
+				3475FDD4214F0175008D57F9 /* DMBaseTextField.swift */,
+				3475FDD6214F018E008D57F9 /* DMItemTextField.swift */,
+				34D1A28E214F04C4004F1ECD /* DMBaseTextView.swift */,
+				345D1DFA214FA638003060DE /* DMDateTextField.swift */,
+			);
+			path = TextInput;
+			sourceTree = "<group>";
+		};
+		34E434F42157821C0097D6A3 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				34E434F5215782590097D6A3 /* DMItem.swift */,
+				34E434F7215783650097D6A3 /* DMSale.swift */,
+				34E434F92157837B0097D6A3 /* DMSolicit.swift */,
+				3442A19921615D45006B3BB5 /* DMDemo.swift */,
+				3442A19B21622B03006B3BB5 /* DMDealer.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		34E434FD2158217D0097D6A3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				34E434FE2158217D0097D6A3 /* Home */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		34E434FE2158217D0097D6A3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				34E434FF2158219C0097D6A3 /* DMBaseHomeCell.swift */,
+				34E43501215821B40097D6A3 /* DMSaleCell.swift */,
+				34E43503215821DD0097D6A3 /* DMDemoCell.swift */,
+				34E43505215821EB0097D6A3 /* DMSolicitsCell.swift */,
+				34E435072158220A0097D6A3 /* DMDealerCell.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		5A7BE1C55F8D22C9FB3571F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FDD2F94D243B0FD900CF90D5 /* AVFoundation.framework */,
+				F7BC09C2AE11DD302BF26B3F /* Pods_DealerMutual.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		611158B03C7A5D036F54F780 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				48DEE8CA31A442D32EC33BDE /* Pods-DealerMutual.debug.xcconfig */,
+				11FB157233D47CAD5C783F62 /* Pods-DealerMutual.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3448937E214D1F7100667D1F /* DealerMutual */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 34489391214D1F7300667D1F /* Build configuration list for PBXNativeTarget "DealerMutual" */;
+			buildPhases = (
+				2A723A01812D283F94CD60E2 /* [CP] Check Pods Manifest.lock */,
+				3448937B214D1F7100667D1F /* Sources */,
+				3448937C214D1F7100667D1F /* Frameworks */,
+				3448937D214D1F7100667D1F /* Resources */,
+				0177DCC0E43A499AC8345120 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DealerMutual;
+			productName = DealerMutual;
+			productReference = 3448937F214D1F7100667D1F /* DealerMutual.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		34489377214D1F7100667D1F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = DM;
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "sasha dovbnya";
+				TargetAttributes = {
+					3448937E214D1F7100667D1F = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 3448937A214D1F7100667D1F /* Build configuration list for PBXProject "DealerMutual" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 34489376214D1F7100667D1F;
+			productRefGroup = 34489380214D1F7100667D1F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3448937E214D1F7100667D1F /* DealerMutual */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3448937D214D1F7100667D1F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3448938D214D1F7300667D1F /* LaunchScreen.storyboard in Resources */,
+				340AB5B5214D429900C7B2AC /* GoogleService-Info.plist in Resources */,
+				3448938A214D1F7300667D1F /* Assets.xcassets in Resources */,
+				34489388214D1F7100667D1F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0177DCC0E43A499AC8345120 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DealerMutual/Pods-DealerMutual-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DealerMutual/Pods-DealerMutual-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DealerMutual/Pods-DealerMutual-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2A723A01812D283F94CD60E2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DealerMutual-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3448937B214D1F7100667D1F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3475FDD0214EFE20008D57F9 /* DMEditSolicitViewController.swift in Sources */,
+				3475FDD5214F0175008D57F9 /* DMBaseTextField.swift in Sources */,
+				346778F321D5258500013BA7 /* DMSelectItemView.swift in Sources */,
+				344893AB214D28C200667D1F /* DMRoundButton.swift in Sources */,
+				3442A19A21615D45006B3BB5 /* DMDemo.swift in Sources */,
+				34E434F6215782590097D6A3 /* DMItem.swift in Sources */,
+				346778F121D524B600013BA7 /* DMSelectItemModel.swift in Sources */,
+				3442A1AC216249FC006B3BB5 /* DMDealerInfoModel.swift in Sources */,
+				3442A1AB216249FC006B3BB5 /* DMHomeViewController.swift in Sources */,
+				34E435002158219C0097D6A3 /* DMBaseHomeCell.swift in Sources */,
+				3446C9DB217494D90081F6A0 /* DMSettingViewController.swift in Sources */,
+				34D1A28F214F04C4004F1ECD /* DMBaseTextView.swift in Sources */,
+				346778FD21D95A3300013BA7 /* ImageViewModel.swift in Sources */,
+				3442A1AA216249FC006B3BB5 /* DMHomeModel.swift in Sources */,
+				3442A19C21622B03006B3BB5 /* DMDealer.swift in Sources */,
+				34E434FC21580E790097D6A3 /* DMNewItemModel.swift in Sources */,
+				34E434F8215783650097D6A3 /* DMSale.swift in Sources */,
+				34489383214D1F7100667D1F /* AppDelegate.swift in Sources */,
+				340AB5B1214D404100C7B2AC /* DMUserAccount.swift in Sources */,
+				34E4350A2158EF130097D6A3 /* DMEditSaleViewController.swift in Sources */,
+				345D1DFB214FA638003060DE /* DMDateTextField.swift in Sources */,
+				3442A1AF21624A17006B3BB5 /* DMBaseMainViewController.swift in Sources */,
+				34E4350C21590D850097D6A3 /* Utils.swift in Sources */,
+				3446C9D9217494B90081F6A0 /* DMSettingModel.swift in Sources */,
+				3475FDD1214EFE20008D57F9 /* DMNewSaleModel.swift in Sources */,
+				34E434FA2157837B0097D6A3 /* DMSolicit.swift in Sources */,
+				34E43504215821DD0097D6A3 /* DMDemoCell.swift in Sources */,
+				344893A9214D256100667D1F /* DMKeyboardViewController.swift in Sources */,
+				344893A5214D237D00667D1F /* DMBaseViewController.swift in Sources */,
+				340AB5AE214D2C8600C7B2AC /* DMCreateAccountModel.swift in Sources */,
+				34E435082158220A0097D6A3 /* DMDealerCell.swift in Sources */,
+				3475FDCE214EFE20008D57F9 /* DMNewItemViewController.swift in Sources */,
+				344893A4214D237D00667D1F /* DMBaseModel.swift in Sources */,
+				3475FDD7214F018E008D57F9 /* DMItemTextField.swift in Sources */,
+				3448939F214D21AB00667D1F /* DMLoginModel.swift in Sources */,
+				345D1DF9214F092A003060DE /* ExpandableTextView.swift in Sources */,
+				340AB5AC214D2C7100C7B2AC /* DMCreateAccountViewController.swift in Sources */,
+				3475FDB7214EF654008D57F9 /* DMSettingPopover.swift in Sources */,
+				3442A1B121624AC3006B3BB5 /* DMBaseMainModel.swift in Sources */,
+				346778ED21D5245B00013BA7 /* DMSelectItemViewController.swift in Sources */,
+				3475FDB4214EF4EE008D57F9 /* DMNavigationController.swift in Sources */,
+				3442A19821615CBA006B3BB5 /* DMNewDemoModel.swift in Sources */,
+				3442A19621615CA4006B3BB5 /* DMEditDemoViewController.swift in Sources */,
+				3423AE1E21558CB100BFABEB /* DMHomeSearchHeader.swift in Sources */,
+				3475FDCF214EFE20008D57F9 /* DMNewSolicitModel.swift in Sources */,
+				3442A1AD216249FC006B3BB5 /* DMDealerInfoViewController.swift in Sources */,
+				340AB5B3214D405600C7B2AC /* DMUserManager.swift in Sources */,
+				3448939B214D20D200667D1F /* DMLoginViewController.swift in Sources */,
+				34E43506215821EB0097D6A3 /* DMSolicitsCell.swift in Sources */,
+				3475FDB9214EF67C008D57F9 /* DMSettingPopoverModel.swift in Sources */,
+				34E43502215821B40097D6A3 /* DMSaleCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		34489386214D1F7100667D1F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				34489387214D1F7100667D1F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3448938B214D1F7300667D1F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3448938C214D1F7300667D1F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3448938F214D1F7300667D1F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		34489390214D1F7300667D1F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		34489392214D1F7300667D1F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48DEE8CA31A442D32EC33BDE /* Pods-DealerMutual.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DealerMutual/DealerMutual.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 18;
+				DEVELOPMENT_TEAM = U55S7N6YRF;
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = DealerMutual/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ahl.anthony.dealermutual;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		34489393214D1F7300667D1F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11FB157233D47CAD5C783F62 /* Pods-DealerMutual.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DealerMutual/DealerMutual.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 18;
+				DEVELOPMENT_TEAM = U55S7N6YRF;
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = DealerMutual/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ahl.anthony.dealermutual;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3448937A214D1F7100667D1F /* Build configuration list for PBXProject "DealerMutual" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3448938F214D1F7300667D1F /* Debug */,
+				34489390214D1F7300667D1F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		34489391214D1F7300667D1F /* Build configuration list for PBXNativeTarget "DealerMutual" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				34489392214D1F7300667D1F /* Debug */,
+				34489393214D1F7300667D1F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 34489377214D1F7100667D1F /* Project object */;
+}
