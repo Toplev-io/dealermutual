@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -662,7 +663,7 @@ Label</string>
                                             <color key="titleColor" red="0.29411764709999999" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="onScanPDF:" destination="Dfw-ys-81Q" eventType="touchUpInside" id="Udp-A7-V3K"/>
+                                            <segue destination="L7X-i1-hnM" kind="show" id="aYM-G5-l5Q"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2uN-4u-dIH">
@@ -2379,9 +2380,70 @@ Label</string>
             </objects>
             <point key="canvasLocation" x="1579" y="270"/>
         </scene>
+        <!--Show Scan Files View Controller-->
+        <scene sceneID="Be0-cT-eAv">
+            <objects>
+                <viewController storyboardIdentifier="DMShowScanFilesViewController" id="L7X-i1-hnM" customClass="DMShowScanFilesViewController" customModule="DealerMutual" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GyE-5n-fcP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9T1-Zj-vWZ">
+                                <rect key="frame" x="10" y="10" width="300" height="528"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="VN2-Xm-lJJ">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DMScanFileCell" id="AWW-hG-uSK" customClass="DMScanFileCell" customModule="DealerMutual" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="zNw-ho-zt3">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tND-mQ-Ezd">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="tND-mQ-Ezd" firstAttribute="top" secondItem="zNw-ho-zt3" secondAttribute="top" id="7Pt-1D-xBn"/>
+                                                <constraint firstAttribute="trailing" secondItem="tND-mQ-Ezd" secondAttribute="trailing" id="Yjc-T3-BAQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="tND-mQ-Ezd" secondAttribute="bottom" id="dFO-Fb-4hh"/>
+                                                <constraint firstItem="tND-mQ-Ezd" firstAttribute="leading" secondItem="zNw-ho-zt3" secondAttribute="leading" id="f7x-Q7-5tr"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="scanImageView" destination="tND-mQ-Ezd" id="KcP-UO-sBN"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dDE-5n-4Gi" firstAttribute="bottom" secondItem="9T1-Zj-vWZ" secondAttribute="bottom" constant="10" id="DsH-cf-5ZI"/>
+                            <constraint firstItem="9T1-Zj-vWZ" firstAttribute="top" secondItem="dDE-5n-4Gi" secondAttribute="top" constant="10" id="PeG-FB-Cdl"/>
+                            <constraint firstItem="9T1-Zj-vWZ" firstAttribute="leading" secondItem="dDE-5n-4Gi" secondAttribute="leading" constant="10" id="VB5-OI-c3q"/>
+                            <constraint firstItem="dDE-5n-4Gi" firstAttribute="trailing" secondItem="9T1-Zj-vWZ" secondAttribute="trailing" constant="10" id="tGN-Ev-bOg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dDE-5n-4Gi"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2cO-nb-Hhq"/>
+                    <connections>
+                        <outlet property="pdfScanFilesCollectionView" destination="9T1-Zj-vWZ" id="bS3-7F-mzb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aqs-BW-UxG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2411.25" y="-1238.0281690140846"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="W2D-Pu-xOL"/>
+        <segue reference="dPo-Km-CPw"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="businesIcon" width="22" height="15"/>

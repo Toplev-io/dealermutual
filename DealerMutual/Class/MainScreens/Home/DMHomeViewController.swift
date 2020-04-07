@@ -21,10 +21,11 @@ class DMHomeViewController: DMBaseMainViewController<DMHomeModel>, DMSettingInte
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let settingButton = createSettingBarButton()
+        let scaningButton = createScanningBarButton()
+        navigationItem.rightBarButtonItems = [settingButton, scaningButton]
         //let filterButton = UIBarButtonItem(image: #imageLiteral(resourceName: "filterIcon"), style: .plain, target: self, action: #selector(self.onFilterPress))
-        navigationItem.rightBarButtonItems = [settingButton]
         headerView.delegete = model
         customDateContainer.isHidden = true
         switch model.type {
@@ -42,6 +43,10 @@ class DMHomeViewController: DMBaseMainViewController<DMHomeModel>, DMSettingInte
     
     func showSetting(_ sender: UIBarButtonItem) {
         wrapShowSetting(sender)
+    }
+    
+    func showScanning(_ sender: UIBarButtonItem) {
+        wrapShowScaning(self)
     }
     
     @IBAction func didChangeDateFilter(_ sender: UISegmentedControl) {

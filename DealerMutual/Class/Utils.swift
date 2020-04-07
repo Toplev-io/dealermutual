@@ -10,6 +10,7 @@ import Foundation
 import PhoneNumberKit
 import MBProgressHUD
 import UIKit
+import Firebase
 
 private let phoneNumberKit = PhoneNumberKit()
 private let emailRegEx = "^[_A-Za-z0-9-+]+(\\.[_A-Za-z0-9-+]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z‌​]{2,4})$"
@@ -72,4 +73,27 @@ func normalized(image: UIImage) -> UIImage {
         return normalImage
     }
     return image
+}
+
+func generateBucketKey() -> String? {
+    var userID: String
+    if let currentUserID = Auth.auth().currentUser?.uid, currentUserID.count > 0  {
+        userID = currentUserID
+    } else {
+        // User might not be logged in
+        userID = UUID().uuidString.replacingOccurrences(of: "-", with: "")
+    }
+    let jpegExtension = ".jpg"
+    let placeDirectory = "photos"
+    let uuidString = UUID().uuidString
+    // guard let uuidString = UUID().uuidString.replacingCharacters(in: "-", with: "")
+    return "\(placeDirectory)_\(userID)_\(uuidString)\(jpegExtension)"
+}
+
+func shareImageBucketKey() -> String? {
+    let currentTimeStr: String = String(format: "%d", (Int)(Date().timeIntervalSince1970))
+    let jpegExtension = ".jpg"
+    let placeDirectory = "photos"
+    // guard let uuidString = UUID().uuidString.replacingCharacters(in: "-", with: "")
+    return "\(placeDirectory)_\(currentTimeStr)\(jpegExtension)"
 }

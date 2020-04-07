@@ -56,12 +56,18 @@ enum DMSelectItemType: Int {
 
 @objc protocol DMSettingInterface {
     @objc func showSetting(_ sender: UIBarButtonItem)
+    @objc func showScanning(_ sender: UIBarButtonItem)
 }
 
 extension DMSettingInterface where Self: UIViewController {
     
     func createSettingBarButton() -> UIBarButtonItem {
         return UIBarButtonItem(image: #imageLiteral(resourceName: "settings"), style: .plain, target: self, action: #selector(Self.showSetting(_:)))
+        
+    }
+    
+    func createScanningBarButton() -> UIBarButtonItem {
+        return UIBarButtonItem(image: #imageLiteral(resourceName: "pdf_scan_icon"), style: .plain, target: self, action: #selector(Self.showScanning(_:)))
         
     }
 
@@ -71,6 +77,51 @@ extension DMSettingInterface where Self: UIViewController {
         navigationController.popoverPresentationController?.barButtonItem = sender
         // present the popover
         self.present(navigationController, animated: true, completion: nil)
+    }
+    
+    func wrapShowScaning(_ vc: UIViewController) {
+        DMScanPDFProvider.shared.getImagePDFScan(vc: vc).getPDFScan = { image in
+            print("got image")
+            guard let bucketKey  = shareImageBucketKey() else {
+                return
+            }
+            let hud = showHUD()
+            DMUploadManager.shared.uploadImage(image, usingKey: bucketKey) { [weak self] (metadata, error) in
+                hud.hide(animated: true)
+                guard let strongSelf = self else { return }
+                if let error = error {
+                  strongSelf.showAlert(error.localizedDescription)
+                    return
+                }
+                
+                guard let metadata = metadata else {
+                    strongSelf.showAlert("No photo upload metadata available")
+                    return
+                }
+
+                guard let photoURL = metadata.path else {
+                    strongSelf.showAlert("Could not upload photo")
+                    return
+                }
+                let pdfFile = DMPDFScanningFile.init(JSON: ["imageUrl": photoURL ])
+                DMDatabaseManager.shared.addPDFScanningFile (pdfFile!) { [weak self] (share, error) in
+                    guard self != nil else { return }
+                    if let error = error {
+                        print(error.localizedDescription)
+                        return
+                    }
+                    print("uploaded successfully")
+                }
+            }
+        }
+    }
+    func showAlert(_ title: String, message: String? = nil, actionTitle: String = "OK", completionHandler: (() -> Void)? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: actionTitle, style: .default) { (action) in
+            completionHandler?()
+        }
+        alert.addAction(defaultAction)
+        present(alert, animated: true, completion: nil)
     }
     
     func createNavigationPopover(with rootViewController: UIViewController) -> UINavigationController {
@@ -87,6 +138,7 @@ extension DMSettingInterface where Self: UIViewController {
         return navigationController
     }
 }
+
 
 
 class DMSelectItemViewController: DMBaseViewController<DMSelectItemModel>, DMSettingInterface, UIPopoverPresentationControllerDelegate {
@@ -111,7 +163,8 @@ class DMSelectItemViewController: DMBaseViewController<DMSelectItemModel>, DMSet
         model.getItems(type: DMSolicit.self)
         
         let settingButton = createSettingBarButton()
-        navigationItem.rightBarButtonItems = [settingButton]
+        let scaningButton = createScanningBarButton()
+        navigationItem.rightBarButtonItems = [settingButton, scaningButton]
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -127,6 +180,10 @@ class DMSelectItemViewController: DMBaseViewController<DMSelectItemModel>, DMSet
     
     func showSetting(_ sender: UIBarButtonItem) {
         wrapShowSetting(sender)
+    }
+    
+    func showScanning(_ sender: UIBarButtonItem) {
+        wrapShowScaning(self)
     }
     
     func showHomeScreen(with type: DMHomeModelTypeItem) {

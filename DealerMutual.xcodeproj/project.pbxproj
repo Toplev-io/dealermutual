@@ -64,6 +64,13 @@
 		34E4350C21590D850097D6A3 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E4350B21590D850097D6A3 /* Utils.swift */; };
 		CB226658183EEF2E55D837DB /* Pods_DealerMutual.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7BC09C2AE11DD302BF26B3F /* Pods_DealerMutual.framework */; };
 		FDD2F94E243B0FDA00CF90D5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDD2F94D243B0FD900CF90D5 /* AVFoundation.framework */; };
+		FDD2F952243B888D00CF90D5 /* DMScanPDFProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD2F951243B888D00CF90D5 /* DMScanPDFProvider.swift */; };
+		FDD2F955243B95E100CF90D5 /* DMDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD2F954243B95E100CF90D5 /* DMDatabaseManager.swift */; };
+		FDD2F957243B962600CF90D5 /* DMUploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD2F956243B962600CF90D5 /* DMUploadManager.swift */; };
+		FDD2F959243B9B9E00CF90D5 /* DMPDFScanningFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD2F958243B9B9E00CF90D5 /* DMPDFScanningFile.swift */; };
+		FDD2F95C243CB2BE00CF90D5 /* DMShowScanFilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD2F95B243CB2BE00CF90D5 /* DMShowScanFilesViewController.swift */; };
+		FDD2F95E243CB35000CF90D5 /* DMShowScanFileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD2F95D243CB34F00CF90D5 /* DMShowScanFileModel.swift */; };
+		FDD2F960243D117200CF90D5 /* DMScanFileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD2F95F243D117200CF90D5 /* DMScanFileCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,6 +136,13 @@
 		7D726615234D1C5900056F58 /* DealerMutual.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DealerMutual.entitlements; sourceTree = "<group>"; };
 		F7BC09C2AE11DD302BF26B3F /* Pods_DealerMutual.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DealerMutual.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDD2F94D243B0FD900CF90D5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		FDD2F951243B888D00CF90D5 /* DMScanPDFProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMScanPDFProvider.swift; sourceTree = "<group>"; };
+		FDD2F954243B95E100CF90D5 /* DMDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMDatabaseManager.swift; sourceTree = "<group>"; };
+		FDD2F956243B962600CF90D5 /* DMUploadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMUploadManager.swift; sourceTree = "<group>"; };
+		FDD2F958243B9B9E00CF90D5 /* DMPDFScanningFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMPDFScanningFile.swift; sourceTree = "<group>"; };
+		FDD2F95B243CB2BE00CF90D5 /* DMShowScanFilesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMShowScanFilesViewController.swift; sourceTree = "<group>"; };
+		FDD2F95D243CB34F00CF90D5 /* DMShowScanFileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMShowScanFileModel.swift; sourceTree = "<group>"; };
+		FDD2F95F243D117200CF90D5 /* DMScanFileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMScanFileCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +236,7 @@
 		34489381214D1F7100667D1F /* DealerMutual */ = {
 			isa = PBXGroup;
 			children = (
+				FDD2F94F243B885900CF90D5 /* Core */,
 				7D726615234D1C5900056F58 /* DealerMutual.entitlements */,
 				34489394214D1FEA00667D1F /* Class */,
 				34489382214D1F7100667D1F /* AppDelegate.swift */,
@@ -312,6 +327,7 @@
 		3475FDB5214EF63D008D57F9 /* Popover */ = {
 			isa = PBXGroup;
 			children = (
+				FDD2F95A243CB2A800CF90D5 /* ScanPDF */,
 				3446C9D7217494A40081F6A0 /* Settings */,
 				3475FDC6214EFE20008D57F9 /* Items */,
 				3475FDB6214EF654008D57F9 /* DMSettingPopover.swift */,
@@ -365,6 +381,7 @@
 		34E434F42157821C0097D6A3 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				FDD2F958243B9B9E00CF90D5 /* DMPDFScanningFile.swift */,
 				34E434F5215782590097D6A3 /* DMItem.swift */,
 				34E434F7215783650097D6A3 /* DMSale.swift */,
 				34E434F92157837B0097D6A3 /* DMSolicit.swift */,
@@ -390,6 +407,7 @@
 				34E43503215821DD0097D6A3 /* DMDemoCell.swift */,
 				34E43505215821EB0097D6A3 /* DMSolicitsCell.swift */,
 				34E435072158220A0097D6A3 /* DMDealerCell.swift */,
+				FDD2F95F243D117200CF90D5 /* DMScanFileCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -410,6 +428,41 @@
 				11FB157233D47CAD5C783F62 /* Pods-DealerMutual.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		FDD2F94F243B885900CF90D5 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				FDD2F953243B95BF00CF90D5 /* Manager */,
+				FDD2F950243B886200CF90D5 /* Provider */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		FDD2F950243B886200CF90D5 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				FDD2F951243B888D00CF90D5 /* DMScanPDFProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		FDD2F953243B95BF00CF90D5 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				FDD2F954243B95E100CF90D5 /* DMDatabaseManager.swift */,
+				FDD2F956243B962600CF90D5 /* DMUploadManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		FDD2F95A243CB2A800CF90D5 /* ScanPDF */ = {
+			isa = PBXGroup;
+			children = (
+				FDD2F95B243CB2BE00CF90D5 /* DMShowScanFilesViewController.swift */,
+				FDD2F95D243CB34F00CF90D5 /* DMShowScanFileModel.swift */,
+			);
+			path = ScanPDF;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -528,8 +581,11 @@
 				3475FDD0214EFE20008D57F9 /* DMEditSolicitViewController.swift in Sources */,
 				3475FDD5214F0175008D57F9 /* DMBaseTextField.swift in Sources */,
 				346778F321D5258500013BA7 /* DMSelectItemView.swift in Sources */,
+				FDD2F960243D117200CF90D5 /* DMScanFileCell.swift in Sources */,
 				344893AB214D28C200667D1F /* DMRoundButton.swift in Sources */,
+				FDD2F95E243CB35000CF90D5 /* DMShowScanFileModel.swift in Sources */,
 				3442A19A21615D45006B3BB5 /* DMDemo.swift in Sources */,
+				FDD2F952243B888D00CF90D5 /* DMScanPDFProvider.swift in Sources */,
 				34E434F6215782590097D6A3 /* DMItem.swift in Sources */,
 				346778F121D524B600013BA7 /* DMSelectItemModel.swift in Sources */,
 				3442A1AC216249FC006B3BB5 /* DMDealerInfoModel.swift in Sources */,
@@ -539,12 +595,14 @@
 				34D1A28F214F04C4004F1ECD /* DMBaseTextView.swift in Sources */,
 				346778FD21D95A3300013BA7 /* ImageViewModel.swift in Sources */,
 				3442A1AA216249FC006B3BB5 /* DMHomeModel.swift in Sources */,
+				FDD2F95C243CB2BE00CF90D5 /* DMShowScanFilesViewController.swift in Sources */,
 				3442A19C21622B03006B3BB5 /* DMDealer.swift in Sources */,
 				34E434FC21580E790097D6A3 /* DMNewItemModel.swift in Sources */,
 				34E434F8215783650097D6A3 /* DMSale.swift in Sources */,
 				34489383214D1F7100667D1F /* AppDelegate.swift in Sources */,
 				340AB5B1214D404100C7B2AC /* DMUserAccount.swift in Sources */,
 				34E4350A2158EF130097D6A3 /* DMEditSaleViewController.swift in Sources */,
+				FDD2F955243B95E100CF90D5 /* DMDatabaseManager.swift in Sources */,
 				345D1DFB214FA638003060DE /* DMDateTextField.swift in Sources */,
 				3442A1AF21624A17006B3BB5 /* DMBaseMainViewController.swift in Sources */,
 				34E4350C21590D850097D6A3 /* Utils.swift in Sources */,
@@ -560,8 +618,10 @@
 				344893A4214D237D00667D1F /* DMBaseModel.swift in Sources */,
 				3475FDD7214F018E008D57F9 /* DMItemTextField.swift in Sources */,
 				3448939F214D21AB00667D1F /* DMLoginModel.swift in Sources */,
+				FDD2F957243B962600CF90D5 /* DMUploadManager.swift in Sources */,
 				345D1DF9214F092A003060DE /* ExpandableTextView.swift in Sources */,
 				340AB5AC214D2C7100C7B2AC /* DMCreateAccountViewController.swift in Sources */,
+				FDD2F959243B9B9E00CF90D5 /* DMPDFScanningFile.swift in Sources */,
 				3475FDB7214EF654008D57F9 /* DMSettingPopover.swift in Sources */,
 				3442A1B121624AC3006B3BB5 /* DMBaseMainModel.swift in Sources */,
 				346778ED21D5245B00013BA7 /* DMSelectItemViewController.swift in Sources */,
