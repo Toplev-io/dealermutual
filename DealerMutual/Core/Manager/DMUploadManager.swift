@@ -58,7 +58,29 @@ class DMUploadManager {
         currentUploadTask = uploadTask
 
     }
+    func uploadPDF(_ pdfURL: URL, usingKey key: String, completionHandler: ((StorageMetadata?, Error?) -> Void)? = nil) {
+        // TODO: Add error handler on guard statements
+        let bucketKey = key.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard bucketKey.count > 0 else { return }
+        let storageRef = storage.reference()
+        let imageRef = storageRef.child(key)
 
+        let uploadTask = imageRef.putFile(from: pdfURL, metadata: nil) { (metadata, error) in
+            if let error = error {
+                completionHandler?(nil, error)
+                return
+            }
+            guard let metadata = metadata else {
+                let error = NSError(domain: "AppErrorDomain", code: -1, userInfo: [
+                    NSLocalizedDescriptionKey: "No photo upload metadata available"
+                    ])
+                completionHandler?(nil, error)
+                return
+            }
+            completionHandler?(metadata, nil)
+        }
+        currentUploadTask = uploadTask
+    }
     func getReference(for path: String) -> StorageReference {
         // Used for downloading firebase photos into image views using SDWebImage
         let storageRef = storage.reference()

@@ -8,7 +8,6 @@
 
 import UIKit
 import AVFoundation
-import WeScan
 
 class DMSettingPopover: DMBaseViewController<DMSettingPopoverModel> {
     

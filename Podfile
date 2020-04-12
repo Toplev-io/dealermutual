@@ -20,5 +20,6 @@ target 'DealerMutual' do
     pod 'AlamofireImage'
     pod 'SwiftDate'
     pod 'Alamofire'
-    pod 'WeScan', '>= 0.9'
+    
+    pod 'PDFGenerator', '~> 3.1'
 end

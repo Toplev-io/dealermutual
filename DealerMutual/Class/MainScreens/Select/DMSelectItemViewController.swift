@@ -80,31 +80,37 @@ extension DMSettingInterface where Self: UIViewController {
     }
     
     func wrapShowScaning(_ vc: UIViewController) {
-        DMScanPDFProvider.shared.getImagePDFScan(vc: vc).getPDFScan = { image in
+        DMScanPDFProvider.shared.getImagePDFScan(vc: vc).getPDFScan = { image, pdfUrl in
             print("got image")
-            guard let bucketKey  = shareImageBucketKey() else {
+            guard let bucketKey  = sharePDFBucketKey() else {
                 return
             }
             let hud = showHUD()
-            DMUploadManager.shared.uploadImage(image, usingKey: bucketKey) { [weak self] (metadata, error) in
-                hud.hide(animated: true)
-                guard let strongSelf = self else { return }
+            DMUploadManager.shared.uploadPDF(pdfUrl, usingKey: bucketKey) { [weak self] (metadata, error) in
+                
+                guard let strongSelf = self else {
+                    hud.hide(animated: true)
+                    return }
                 if let error = error {
+                    hud.hide(animated: true)
                   strongSelf.showAlert(error.localizedDescription)
                     return
                 }
                 
                 guard let metadata = metadata else {
+                    hud.hide(animated: true)
                     strongSelf.showAlert("No photo upload metadata available")
                     return
                 }
 
                 guard let photoURL = metadata.path else {
+                    hud.hide(animated: true)
                     strongSelf.showAlert("Could not upload photo")
                     return
                 }
                 let pdfFile = DMPDFScanningFile.init(JSON: ["imageUrl": photoURL ])
                 DMDatabaseManager.shared.addPDFScanningFile (pdfFile!) { [weak self] (share, error) in
+                    hud.hide(animated: true)
                     guard self != nil else { return }
                     if let error = error {
                         print(error.localizedDescription)

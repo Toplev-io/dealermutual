@@ -7,12 +7,11 @@
 //
 
 import UIKit
-import WeScan
 
 class DMScanPDFProvider:NSObject {
     static let shared = DMScanPDFProvider()
     var focusVC: UIViewController?
-    var getPDFScan: ((_ image: UIImage) -> ())?
+    var getPDFScan: ((_ image: UIImage, _ pdfURL: URL) -> ())?
     
     func getImagePDFScan(vc: UIViewController) -> DMScanPDFProvider {
         focusVC = vc
@@ -68,9 +67,9 @@ extension DMScanPDFProvider: ImageScannerControllerDelegate {
     
     func imageScannerController(_ scanner: ImageScannerController, didFinishScanningWithResults results: ImageScannerResults) {
         scanner.dismiss(animated: true) {
-            if let getPDFScan = self.getPDFScan {
-                getPDFScan(results.enhancedScan!.image)
-            }
+//            if let getPDFScan = self.getPDFScan {
+//                getPDFScan(results.enhancedScan!.image, results.pdfURL)
+//            }
         }
     }
     

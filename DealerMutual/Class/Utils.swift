@@ -97,3 +97,11 @@ func shareImageBucketKey() -> String? {
     // guard let uuidString = UUID().uuidString.replacingCharacters(in: "-", with: "")
     return "\(placeDirectory)_\(currentTimeStr)\(jpegExtension)"
 }
+
+func sharePDFBucketKey() -> String? {
+    let currentTimeStr: String = String(format: "%d", (Int)(Date().timeIntervalSince1970))
+    let pdfExtension = ".pdf"
+    let placeDirectory = "pdfs"
+    // guard let uuidString = UUID().uuidString.replacingCharacters(in: "-", with: "")
+    return "\(placeDirectory)_\(currentTimeStr)\(pdfExtension)"
+}

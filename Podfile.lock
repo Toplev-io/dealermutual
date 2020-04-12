@@ -312,6 +312,7 @@ PODS:
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
   - ObjectMapper (3.5.2)
+  - PDFGenerator (3.1.0)
   - PhoneNumberKit (3.2.0):
     - PhoneNumberKit/PhoneNumberKitCore (= 3.2.0)
     - PhoneNumberKit/UIKit (= 3.2.0)
@@ -324,7 +325,6 @@ PODS:
     - SDWebImage/Core (= 5.7.0)
   - SDWebImage/Core (5.7.0)
   - SwiftDate (6.1.0)
-  - WeScan (1.5.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -339,9 +339,9 @@ DEPENDENCIES:
   - FirebaseUI/Storage
   - MBProgressHUD
   - ObjectMapper
+  - PDFGenerator (~> 3.1)
   - PhoneNumberKit
   - SwiftDate
-  - WeScan (>= 0.9)
 
 SPEC REPOS:
   trunk:
@@ -376,12 +376,12 @@ SPEC REPOS:
     - MBProgressHUD
     - nanopb
     - ObjectMapper
+    - PDFGenerator
     - PhoneNumberKit
     - PromisesObjC
     - Protobuf
     - SDWebImage
     - SwiftDate
-    - WeScan
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
@@ -415,13 +415,13 @@ SPEC CHECKSUMS:
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   ObjectMapper: b53ae947d370bf89423e86be7d4e2d2b2a8d3f40
+  PDFGenerator: 17d6bc525db0a3fcd156fbf00f9d1b8d5cc75d1e
   PhoneNumberKit: df411d46177d1492da84e10b6c093846dd861452
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   Protobuf: 176220c526ad8bd09ab1fb40a978eac3fef665f7
   SDWebImage: a99471f452bdfa0ca52ddf5b1adf2b61cab1d1eb
   SwiftDate: fa2bb3962056bb44047b4b85a30044e5eae30b03
-  WeScan: b2e47d07f5da3dbf3db14b742e403a8924cf32b2
 
-PODFILE CHECKSUM: 92dd192fff7078dd4c4bb0cf45d1af7523a1f61d
+PODFILE CHECKSUM: 357aa8674784d375a2458697b00d59780fba6e84
 
 COCOAPODS: 1.9.1
