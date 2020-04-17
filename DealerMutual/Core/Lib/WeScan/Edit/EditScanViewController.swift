@@ -33,14 +33,14 @@ final class EditScanViewController: UIViewController {
     private lazy var nextButton: UIBarButtonItem = {
         let title = NSLocalizedString("wescan.edit.button.next", tableName: nil, bundle: Bundle(for: EditScanViewController.self), value: "Next", comment: "A generic next button")
         let button = UIBarButtonItem(title: title, style: .plain, target: self, action: #selector(pushReviewController))
-        button.tintColor = navigationController?.navigationBar.tintColor
+        button.tintColor = .white
         return button
     }()
     
     private lazy var cancelButton: UIBarButtonItem = {
         let title = NSLocalizedString("wescan.edit.button.cancel", tableName: nil, bundle: Bundle(for: EditScanViewController.self), value: "Cancel", comment: "A generic cancel button")
         let button = UIBarButtonItem(title: title, style: .plain, target: self, action: #selector(cancelButtonTapped))
-        button.tintColor = navigationController?.navigationBar.tintColor
+        button.tintColor = .white
         return button
     }()
 
@@ -91,6 +91,12 @@ final class EditScanViewController: UIViewController {
         super.viewDidLayoutSubviews()
         adjustQuadViewConstraints()
         displayQuad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.tintColor = .white
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -166,7 +172,7 @@ final class EditScanViewController: UIViewController {
         let enhancedImage = filteredImage.applyingAdaptiveThreshold()?.withFixedOrientation()
         let enhancedScan = enhancedImage.flatMap { ImageScannerScan(image: $0) }
         
-        let results = ImageScannerResults(detectedRectangle: scaledQuad, originalScan: ImageScannerScan(image: image), croppedScan: ImageScannerScan(image: croppedImage), enhancedScan: enhancedScan, pdfURL: URL(fileURLWithPath: ""))
+        let results = ImageScannerResults(detectedRectangle: scaledQuad, originalScan: ImageScannerScan(image: image), croppedScan: ImageScannerScan(image: croppedImage), enhancedScan: enhancedScan, pdfURL: URL(fileURLWithPath: ""), thumbImage:UIImage())
         
         let reviewViewController = ReviewViewController(results: results)
         navigationController?.pushViewController(reviewViewController, animated: true)
@@ -192,7 +198,7 @@ final class EditScanViewController: UIViewController {
     }
     
     /// Generates a `Quadrilateral` object that's centered and one third of the size of the passed in image.
-    private static func defaultQuad(forImage image: UIImage) -> Quadrilateral {
+    static func defaultQuad(forImage image: UIImage) -> Quadrilateral {
         let topLeft = CGPoint(x: image.size.width / 3.0, y: image.size.height / 3.0)
         let topRight = CGPoint(x: 2.0 * image.size.width / 3.0, y: image.size.height / 3.0)
         let bottomRight = CGPoint(x: 2.0 * image.size.width / 3.0, y: 2.0 * image.size.height / 3.0)

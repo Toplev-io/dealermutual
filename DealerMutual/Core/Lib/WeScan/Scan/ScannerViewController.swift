@@ -93,7 +93,8 @@ final class ScannerViewController: UIViewController {
         captureSessionManager?.start()
         UIApplication.shared.isIdleTimerDisabled = true
         
-        navigationController?.navigationBar.barStyle = .blackTranslucent
+        navigationController?.navigationBar.tintColor = .white
+//        navigationController?.navigationBar.barStyle = .blackTranslucent
     }
     
     override func viewDidLayoutSubviews() {
@@ -105,9 +106,10 @@ final class ScannerViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         UIApplication.shared.isIdleTimerDisabled = false
-        
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barStyle = originalBarStyle ?? .default
+
+        navigationController?.navigationBar.tintColor = .white
+//        navigationController?.navigationBar.isTranslucent = false
+//        navigationController?.navigationBar.barStyle = originalBarStyle ?? .default
         captureSessionManager?.stop()
         guard let device = AVCaptureDevice.default(for: AVMediaType.video) else { return }
         if device.torchMode == .on {

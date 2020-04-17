@@ -18,6 +18,7 @@ public protocol ImageScannerControllerDelegate: NSObjectProtocol {
     ///   - scanner: The scanner controller object managing the scanning interface.
     ///   - results: The results of the user scanning with the camera.
     /// - Discussion: Your delegate's implementation of this method should dismiss the image scanner controller.
+//    func imageScannerController(_ scanner: ImageScannerController, didFinishScanningWithResults results: ImageScannerResults)
     func imageScannerController(_ scanner: ImageScannerController, didFinishScanningWithResults results: ImageScannerResults)
     
     /// Tells the delegate that the user cancelled the scan operation.
@@ -64,12 +65,13 @@ public final class ImageScannerController: UINavigationController {
         super.init(rootViewController: ScannerViewController())
         
         self.imageScannerDelegate = delegate
-        
-        if #available(iOS 13.0, *) {
-            navigationBar.tintColor = .label
-        } else {
-            navigationBar.tintColor = .black
-        }
+//        
+//        if #available(iOS 13.0, *) {
+//            navigationBar.tintColor = .label
+//        } else {
+//            navigationBar.tintColor = .black
+//        }
+        navigationController?.navigationBar.tintColor = .white
         navigationBar.isTranslucent = false
         self.view.addSubview(blackFlashView)
         setupConstraints()
@@ -109,6 +111,10 @@ public final class ImageScannerController: UINavigationController {
     
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     private func setupConstraints() {
@@ -176,6 +182,7 @@ public struct ImageScannerResults {
     
     
     public var pdfURL: URL
+    public var thumbImage: UIImage
     
     
     /// The detected rectangle which was used to generate the `scannedImage`.
@@ -193,7 +200,7 @@ public struct ImageScannerResults {
     @available(*, unavailable, renamed: "doesUserPreferEnhancedScan")
     public var doesUserPreferEnhancedImage: Bool = false
     
-    init(detectedRectangle: Quadrilateral, originalScan: ImageScannerScan, croppedScan: ImageScannerScan, enhancedScan: ImageScannerScan?, doesUserPreferEnhancedScan: Bool = false, pdfURL:URL) {
+    init(detectedRectangle: Quadrilateral, originalScan: ImageScannerScan, croppedScan: ImageScannerScan, enhancedScan: ImageScannerScan?, doesUserPreferEnhancedScan: Bool = false, pdfURL:URL, thumbImage:UIImage) {
         self.detectedRectangle = detectedRectangle
         
         self.originalScan = originalScan
@@ -203,5 +210,6 @@ public struct ImageScannerResults {
         self.doesUserPreferEnhancedScan = doesUserPreferEnhancedScan
         
         self.pdfURL = pdfURL
+        self.thumbImage = thumbImage
     }
 }

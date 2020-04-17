@@ -52,7 +52,7 @@ final class ReviewViewController: UIViewController {
     
     private lazy var doneButton: UIBarButtonItem = {
         let button = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(finishScan))
-        button.tintColor = navigationController?.navigationBar.tintColor
+        button.tintColor = .white
         return button
     }()
     
@@ -85,6 +85,7 @@ final class ReviewViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        navigationController?.navigationBar.tintColor = .white
         // We only show the toolbar (with the enhance button) if the enhanced image is available.
         if enhancedImageIsAvailable {
             navigationController?.setToolbarHidden(false, animated: true)
@@ -176,8 +177,12 @@ final class ReviewViewController: UIViewController {
         newResults.croppedScan.rotate(by: rotationAngle)
         newResults.enhancedScan?.rotate(by: rotationAngle)
         newResults.doesUserPreferEnhancedScan = isCurrentlyDisplayingEnhancedImage
-        newResults.pdfURL = pdfURL
-        imageScannerController.imageScannerDelegate?.imageScannerController(imageScannerController, didFinishScanningWithResults: newResults)
+        ScanManager.shared.scanPhoto.append(newResults.croppedScan.image)
+        
+        let showListVC = ShowListViewController(results: newResults)
+        navigationController?.pushViewController(showListVC, animated: true)
+        
+        
     }
 
 }

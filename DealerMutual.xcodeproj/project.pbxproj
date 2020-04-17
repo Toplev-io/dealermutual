@@ -103,6 +103,8 @@
 		FDD2FB1424434A0000CF90D5 /* CaptureSession+Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD2FAE724434A0000CF90D5 /* CaptureSession+Orientation.swift */; };
 		FDD2FB1524434A0000CF90D5 /* CaptureSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD2FAE824434A0000CF90D5 /* CaptureSession.swift */; };
 		FDD2FB1624434A0000CF90D5 /* CaptureSession+Focus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD2FAE924434A0000CF90D5 /* CaptureSession+Focus.swift */; };
+		FDEFC1FD24488F8100DD7971 /* ShowListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEFC1FC24488F8100DD7971 /* ShowListViewController.swift */; };
+		FDEFC1FF244977FD00DD7971 /* ScanManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEFC1FE244977FD00DD7971 /* ScanManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -218,6 +220,8 @@
 		FDD2FAE724434A0000CF90D5 /* CaptureSession+Orientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CaptureSession+Orientation.swift"; sourceTree = "<group>"; };
 		FDD2FAE824434A0000CF90D5 /* CaptureSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureSession.swift; sourceTree = "<group>"; };
 		FDD2FAE924434A0000CF90D5 /* CaptureSession+Focus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CaptureSession+Focus.swift"; sourceTree = "<group>"; };
+		FDEFC1FC24488F8100DD7971 /* ShowListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListViewController.swift; sourceTree = "<group>"; };
+		FDEFC1FE244977FD00DD7971 /* ScanManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -561,6 +565,7 @@
 				FDD2FACF24434A0000CF90D5 /* Review */,
 				FDD2FAE124434A0000CF90D5 /* Protocols */,
 				FDD2FAE524434A0000CF90D5 /* Session */,
+				FDEFC1FE244977FD00DD7971 /* ScanManager.swift */,
 			);
 			path = WeScan;
 			sourceTree = "<group>";
@@ -620,6 +625,7 @@
 			isa = PBXGroup;
 			children = (
 				FDD2FAD024434A0000CF90D5 /* ReviewViewController.swift */,
+				FDEFC1FC24488F8100DD7971 /* ShowListViewController.swift */,
 			);
 			path = Review;
 			sourceTree = "<group>";
@@ -812,8 +818,10 @@
 				34E4350C21590D850097D6A3 /* Utils.swift in Sources */,
 				3446C9D9217494B90081F6A0 /* DMSettingModel.swift in Sources */,
 				FDD2FAF124434A0000CF90D5 /* AVCaptureVideoOrientation+Utils.swift in Sources */,
+				FDEFC1FF244977FD00DD7971 /* ScanManager.swift in Sources */,
 				FDD2FAFD24434A0000CF90D5 /* EditScanCornerView.swift in Sources */,
 				3475FDD1214EFE20008D57F9 /* DMNewSaleModel.swift in Sources */,
+				FDEFC1FD24488F8100DD7971 /* ShowListViewController.swift in Sources */,
 				34E434FA2157837B0097D6A3 /* DMSolicit.swift in Sources */,
 				34E43504215821DD0097D6A3 /* DMDemoCell.swift in Sources */,
 				344893A9214D256100667D1F /* DMKeyboardViewController.swift in Sources */,

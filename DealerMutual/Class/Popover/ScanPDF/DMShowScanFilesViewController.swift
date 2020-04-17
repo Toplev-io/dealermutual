@@ -106,14 +106,18 @@ extension DMShowScanFilesViewController : UICollectionViewDelegate, UICollection
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DMScanFileCell", for: indexPath) as! DMScanFileCell
+        cell.fileNameLbl.isHidden = true
         let scanFile = scanFiles[indexPath.row]
-        if let imageUrl = scanFile.imageUrl {
+        if let imageUrl = scanFile.imageUrl, imageUrl.count > 0 {
             cell.scanImageView.sd_setImage(with: DMUploadManager.shared.getReference(for: imageUrl), placeholderImage: nil) { (image, error, imageCacheType, storageReference) in
                 if let image = image {
                     self.saveImage(imageName: imageUrl, image: image)
                 }
             }
-            
+        }else if let pdfUrl = scanFile.pdfURL, pdfUrl.count > 0 {
+            cell.fileNameLbl.isHidden = false
+            let pdfURL = URL(string: pdfUrl)
+            cell.fileNameLbl.text = pdfURL?.lastPathComponent
         }
         return cell
     }

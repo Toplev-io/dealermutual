@@ -9,6 +9,7 @@
 import UIKit
 
 class DMScanFileCell: UICollectionViewCell {
+    @IBOutlet weak var fileNameLbl: UILabel!
     @IBOutlet weak var scanImageView: UIImageView!
     
 }

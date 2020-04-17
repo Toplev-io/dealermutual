@@ -22,4 +22,5 @@ target 'DealerMutual' do
     pod 'Alamofire'
     
     pod 'PDFGenerator', '~> 3.1'
+    pod 'SnapKit', '~> 4.0.1'
 end

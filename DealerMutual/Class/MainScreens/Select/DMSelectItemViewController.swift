@@ -82,18 +82,19 @@ extension DMSettingInterface where Self: UIViewController {
     func wrapShowScaning(_ vc: UIViewController) {
         DMScanPDFProvider.shared.getImagePDFScan(vc: vc).getPDFScan = { image, pdfUrl in
             print("got image")
-            guard let bucketKey  = sharePDFBucketKey() else {
+            
+            guard let bucketImageKey  = shareImageBucketKey() else {
                 return
             }
             let hud = showHUD()
-            DMUploadManager.shared.uploadPDF(pdfUrl, usingKey: bucketKey) { [weak self] (metadata, error) in
-                
+            DMUploadManager.shared.uploadImage(image, usingKey: bucketImageKey) { [weak self] (metadata, error) in
                 guard let strongSelf = self else {
                     hud.hide(animated: true)
-                    return }
+                    return
+                }
                 if let error = error {
                     hud.hide(animated: true)
-                  strongSelf.showAlert(error.localizedDescription)
+                    strongSelf.showAlert(error.localizedDescription)
                     return
                 }
                 
@@ -108,15 +109,30 @@ extension DMSettingInterface where Self: UIViewController {
                     strongSelf.showAlert("Could not upload photo")
                     return
                 }
-                let pdfFile = DMPDFScanningFile.init(JSON: ["imageUrl": photoURL ])
-                DMDatabaseManager.shared.addPDFScanningFile (pdfFile!) { [weak self] (share, error) in
-                    hud.hide(animated: true)
-                    guard self != nil else { return }
+                
+                guard let bucketKey  = sharePDFBucketKey() else {
+                    return
+                }
+                DMUploadManager.shared.uploadPDF(pdfUrl, usingKey: bucketKey) { [weak self] (pdfURL, error) in
+                    
+                    guard let strongSelf = self else {
+                        hud.hide(animated: true)
+                        return }
                     if let error = error {
-                        print(error.localizedDescription)
+                        hud.hide(animated: true)
+                      strongSelf.showAlert(error.localizedDescription)
                         return
                     }
-                    print("uploaded successfully")
+                    let pdfFile = DMPDFScanningFile.init(JSON: ["pdfURL": pdfURL ?? "", "imageUrl": photoURL ])
+                    DMDatabaseManager.shared.addPDFScanningFile (pdfFile!) { [weak self] (share, error) in
+                        hud.hide(animated: true)
+                        guard self != nil else { return }
+                        if let error = error {
+                            print(error.localizedDescription)
+                            return
+                        }
+                        print("uploaded successfully")
+                    }
                 }
             }
         }

@@ -67,9 +67,9 @@ extension DMScanPDFProvider: ImageScannerControllerDelegate {
     
     func imageScannerController(_ scanner: ImageScannerController, didFinishScanningWithResults results: ImageScannerResults) {
         scanner.dismiss(animated: true) {
-//            if let getPDFScan = self.getPDFScan {
-//                getPDFScan(results.enhancedScan!.image, results.pdfURL)
-//            }
+            if let getPDFScan = self.getPDFScan {
+                getPDFScan(results.thumbImage, results.pdfURL)
+            }
         }
     }
     
