@@ -313,6 +313,7 @@ PODS:
   - nanopb/encode (0.3.9011)
   - ObjectMapper (3.5.2)
   - PDFGenerator (3.1.0)
+  - PDFReader (2.5.1)
   - PhoneNumberKit (3.2.0):
     - PhoneNumberKit/PhoneNumberKitCore (= 3.2.0)
     - PhoneNumberKit/UIKit (= 3.2.0)
@@ -341,6 +342,7 @@ DEPENDENCIES:
   - MBProgressHUD
   - ObjectMapper
   - PDFGenerator (~> 3.1)
+  - PDFReader
   - PhoneNumberKit
   - SnapKit (~> 4.0.1)
   - SwiftDate
@@ -379,6 +381,7 @@ SPEC REPOS:
     - nanopb
     - ObjectMapper
     - PDFGenerator
+    - PDFReader
     - PhoneNumberKit
     - PromisesObjC
     - Protobuf
@@ -419,6 +422,7 @@ SPEC CHECKSUMS:
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   ObjectMapper: b53ae947d370bf89423e86be7d4e2d2b2a8d3f40
   PDFGenerator: 17d6bc525db0a3fcd156fbf00f9d1b8d5cc75d1e
+  PDFReader: 2c4a845d0560f33221cf911516e3b700967680f6
   PhoneNumberKit: df411d46177d1492da84e10b6c093846dd861452
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   Protobuf: 176220c526ad8bd09ab1fb40a978eac3fef665f7
@@ -426,6 +430,6 @@ SPEC CHECKSUMS:
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SwiftDate: fa2bb3962056bb44047b4b85a30044e5eae30b03
 
-PODFILE CHECKSUM: 970dec38a5ac88e8c731de2f69a9e64f00075cb0
+PODFILE CHECKSUM: 5a4d7a84c0a2cbeff0e619495f6180f2f2ad605b
 
 COCOAPODS: 1.9.1

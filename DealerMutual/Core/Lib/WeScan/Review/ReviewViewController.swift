@@ -44,7 +44,7 @@ final class ReviewViewController: UIViewController {
     }()
     
     private lazy var shareButton: UIBarButtonItem = {
-        let image = UIImage(named: "fileReportShareIcon", in: Bundle(for: ScannerViewController.self), compatibleWith: nil)
+        let image = UIImage(named: "icon_share", in: Bundle(for: ScannerViewController.self), compatibleWith: nil)
         let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(shareImage))
         button.tintColor = .white
         return button
@@ -85,7 +85,8 @@ final class ReviewViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.navigationBar.tintColor = .white
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
         // We only show the toolbar (with the enhance button) if the enhanced image is available.
         if enhancedImageIsAvailable {
             navigationController?.setToolbarHidden(false, animated: true)
@@ -177,7 +178,7 @@ final class ReviewViewController: UIViewController {
         newResults.croppedScan.rotate(by: rotationAngle)
         newResults.enhancedScan?.rotate(by: rotationAngle)
         newResults.doesUserPreferEnhancedScan = isCurrentlyDisplayingEnhancedImage
-        ScanManager.shared.scanPhoto.append(newResults.croppedScan.image)
+        ScanManager.shared.scanPhoto.append(newResults.croppedScan.image.scaledImage(scaleFactor: 0.5)!)
         
         let showListVC = ShowListViewController(results: newResults)
         navigationController?.pushViewController(showListVC, animated: true)

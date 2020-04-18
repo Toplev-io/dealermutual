@@ -92,8 +92,8 @@ final class ScannerViewController: UIViewController {
         quadView.removeQuadrilateral()
         captureSessionManager?.start()
         UIApplication.shared.isIdleTimerDisabled = true
-        
-        navigationController?.navigationBar.tintColor = .white
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
 //        navigationController?.navigationBar.barStyle = .blackTranslucent
     }
     
@@ -107,7 +107,6 @@ final class ScannerViewController: UIViewController {
         super.viewWillDisappear(animated)
         UIApplication.shared.isIdleTimerDisabled = false
 
-        navigationController?.navigationBar.tintColor = .white
 //        navigationController?.navigationBar.isTranslucent = false
 //        navigationController?.navigationBar.barStyle = originalBarStyle ?? .default
         captureSessionManager?.stop()

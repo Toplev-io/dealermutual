@@ -40,12 +40,7 @@ class DMScanPDFProvider:NSObject {
     func scanImage() {
         let scannerViewController = ImageScannerController(delegate: self)
         scannerViewController.modalPresentationStyle = .fullScreen
-        
-        if #available(iOS 13.0, *) {
-            scannerViewController.navigationBar.tintColor = .label
-        } else {
-            scannerViewController.navigationBar.tintColor = .black
-        }
+        scannerViewController.navigationBar.tintColor = .white
 
         guard let vc = focusVC else { return }
         vc.present(scannerViewController, animated: true)

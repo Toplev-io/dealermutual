@@ -23,4 +23,5 @@ target 'DealerMutual' do
     
     pod 'PDFGenerator', '~> 3.1'
     pod 'SnapKit', '~> 4.0.1'
+    pod 'PDFReader'
 end

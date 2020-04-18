@@ -10,6 +10,8 @@ import UIKit
 import FirebaseStorage
 import FirebaseUI
 import QuickLook
+import PDFReader
+import MBProgressHUD
 
 class DMShowScanFilesViewController: DMBaseViewController<DMShowScanFileModel> {
     
@@ -17,6 +19,9 @@ class DMShowScanFilesViewController: DMBaseViewController<DMShowScanFileModel> {
     lazy private var previewItem = NSURL()
     private var scanFiles = [DMPDFScanningFile]()
     private var filesDownLoaded = [NSURL]()
+    
+    var hud:MBProgressHUD?
+    var currentURL:URL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,9 +83,7 @@ class DMShowScanFilesViewController: DMBaseViewController<DMShowScanFileModel> {
         }
 
     }
-
-
-
+    
     func loadImageFromDiskWith(fileName: String) -> NSURL? {
 
       let documentDirectory = FileManager.SearchPathDirectory.documentDirectory
@@ -94,6 +97,76 @@ class DMShowScanFilesViewController: DMBaseViewController<DMShowScanFileModel> {
         }
         return nil
     }
+    
+    func showPDFFile(url : URL){
+        self.previewItem = url as NSURL
+        let previewController = QLPreviewController()
+        
+        previewController.navigationController?.view.backgroundColor = #colorLiteral(red: 0.1725490196, green: 0.5725490196, blue: 0.8509803922, alpha: 1)
+        previewController.dataSource = self
+        if #available(iOS 13.0, *) {
+            self.navigationController?.pushViewController(previewController, animated: true)
+        } else {
+            self.present(previewController, animated: true, completion: nil)
+        }
+    }
+    
+    // MARK: fetch image from url
+    func download(from url: URL) {
+
+        currentURL = url
+        let showView = UIApplication.shared.keyWindow ?? UIView()
+        hud = MBProgressHUD.showAdded(to: showView, animated: true)
+        hud?.mode = .determinateHorizontalBar
+        
+        let documentsPath = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
+        let destinationURL = documentsPath.appendingPathComponent(String(url.lastPathComponent.split(separator: "?")[0]))
+        
+        if FileManager.default.fileExists(atPath: destinationURL.absoluteString) {
+            self.showPDFFile(url: destinationURL)
+        } else {
+            let storageRef = Storage.storage().reference()
+            let pdfRef = storageRef.child(String(url.lastPathComponent.split(separator: "?")[0]))
+            let downloadTask = pdfRef.write(toFile: destinationURL) { url, error in
+                DispatchQueue.main.async {
+                    self.hud?.hide(animated: true)
+                }
+                if let error = error {
+                    print(error.localizedDescription)
+                }else{
+                    DispatchQueue.main.async {
+                        self.showPDFFile(url: url!)
+                                
+            //                    if let document = PDFDocument(url: url!) {
+            //                        let readerController = PDFViewController.createNew(with: document)
+            //                        readerController.navigationController?.view.backgroundColor = #colorLiteral(red: 0.1725490196, green: 0.5725490196, blue: 0.8509803922, alpha: 1)
+            //                        if #available(iOS 13.0, *) {
+            //                            self.navigationController?.pushViewController(readerController, animated: true)
+            //                        } else {
+            //                            self.present(readerController, animated: true, completion: nil)
+            //                        }
+            //                    }
+                    }
+                }
+            }
+            downloadTask.observe(.progress) { snapshot in
+                let percentComplete = Float(snapshot.progress!.completedUnitCount) / Float(snapshot.progress!.totalUnitCount)
+                print("\(percentComplete)")
+                DispatchQueue.main.async {
+                    self.hud?.progress = percentComplete
+                }
+            }
+
+            downloadTask.observe(.success) { snapshot in
+              // Download completed successfully
+            }
+        }
+    }
+    
+    func getURLFromString(_ str: String) -> URL? {
+        return URL(string: str)
+    }
+    
 }
 
 extension DMShowScanFilesViewController : UICollectionViewDelegate, UICollectionViewDataSource {
@@ -123,17 +196,21 @@ extension DMShowScanFilesViewController : UICollectionViewDelegate, UICollection
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let scanFile = scanFiles[indexPath.row]
-        if let imageUrl = scanFile.imageUrl {
+        if let pdfUrl = scanFile.pdfURL {
+            if let pdfURL = getURLFromString(pdfUrl) {
+                download(from: pdfURL)
+            }
+        }else if let imageUrl = scanFile.imageUrl {
             previewItem = self.loadImageFromDiskWith(fileName: imageUrl)!
-        }
-        let previewController = QLPreviewController()
-        
-        previewController.navigationController?.view.backgroundColor = #colorLiteral(red: 0.1725490196, green: 0.5725490196, blue: 0.8509803922, alpha: 1)
-        previewController.dataSource = self
-        if #available(iOS 13.0, *) {
-            self.navigationController?.pushViewController(previewController, animated: true)
-        } else {
-            self.present(previewController, animated: true, completion: nil)
+            let previewController = QLPreviewController()
+            
+            previewController.navigationController?.view.backgroundColor = #colorLiteral(red: 0.1725490196, green: 0.5725490196, blue: 0.8509803922, alpha: 1)
+            previewController.dataSource = self
+            if #available(iOS 13.0, *) {
+                self.navigationController?.pushViewController(previewController, animated: true)
+            } else {
+                self.present(previewController, animated: true, completion: nil)
+            }
         }
     }
 }

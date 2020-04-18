@@ -71,6 +71,8 @@ final class ShowListViewController: UIViewController {
         return cv
     }()
     
+    private var pdfURL:URL?
+    
     private lazy var doneButton: UIBarButtonItem = {
         let button = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(finishScan))
         button.tintColor = .white
@@ -83,6 +85,12 @@ final class ShowListViewController: UIViewController {
         return button
     }()
     
+    private lazy var shareButton: UIBarButtonItem = {
+        let image = UIImage(named: "icon_share", in: Bundle(for: ScannerViewController.self), compatibleWith: nil)
+        let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(sharePDF))
+        button.tintColor = .white
+        return button
+    }()
     private lazy var addButton: UIButton = {
         let button = UIButton()
         button.setTitle(NSLocalizedString("wescan.scanning.add", tableName: nil, bundle: Bundle(for: ShowListViewController.self), value: "+", comment: "The cancel button"), for: .normal)
@@ -117,14 +125,15 @@ final class ShowListViewController: UIViewController {
         setupCollection()
         
         title = NSLocalizedString("wescan.show.title", tableName: nil, bundle: Bundle(for: ReviewViewController.self), value: "Scanned files", comment: "The review title of the ShowListViewController")
-        navigationItem.rightBarButtonItem = doneButton
+        navigationItem.rightBarButtonItems = [doneButton, shareButton]
         navigationItem.leftBarButtonItem = cancelButton
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.navigationBar.tintColor = .white
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
     // MARK: Setups
     
@@ -153,6 +162,15 @@ final class ShowListViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         
+    }
+    
+    @objc func sharePDF() {
+        if pdfURL == nil {
+            pdfURL = getPDFUrl()
+        }
+        
+        let ac = UIActivityViewController(activityItems: [pdfURL!], applicationActivities: nil)
+        self.present(ac, animated: true, completion: nil)
     }
     
     @objc func getPDFUrl() -> URL{
@@ -187,7 +205,10 @@ final class ShowListViewController: UIViewController {
         guard let imageScannerController = navigationController as? ImageScannerController else { return }
         
         var newResults = results
-        newResults.pdfURL = getPDFUrl()
+        if pdfURL == nil {
+            pdfURL = getPDFUrl()
+        }
+        newResults.pdfURL = pdfURL!
         newResults.thumbImage = ScanManager.shared.scanPhoto[0]
         imageScannerController.imageScannerDelegate?.imageScannerController(imageScannerController, didFinishScanningWithResults: newResults)
     }
