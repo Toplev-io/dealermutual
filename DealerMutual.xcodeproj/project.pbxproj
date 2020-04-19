@@ -105,6 +105,8 @@
 		FDD2FB1624434A0000CF90D5 /* CaptureSession+Focus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD2FAE924434A0000CF90D5 /* CaptureSession+Focus.swift */; };
 		FDEFC1FD24488F8100DD7971 /* ShowListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEFC1FC24488F8100DD7971 /* ShowListViewController.swift */; };
 		FDEFC1FF244977FD00DD7971 /* ScanManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEFC1FE244977FD00DD7971 /* ScanManager.swift */; };
+		FDFFD8EA244BF4F400DADEB2 /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFFD8E8244BF4F400DADEB2 /* SCLAlertView.swift */; };
+		FDFFD8EB244BF4F400DADEB2 /* SCLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFFD8E9244BF4F400DADEB2 /* SCLExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -222,6 +224,8 @@
 		FDD2FAE924434A0000CF90D5 /* CaptureSession+Focus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CaptureSession+Focus.swift"; sourceTree = "<group>"; };
 		FDEFC1FC24488F8100DD7971 /* ShowListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListViewController.swift; sourceTree = "<group>"; };
 		FDEFC1FE244977FD00DD7971 /* ScanManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanManager.swift; sourceTree = "<group>"; };
+		FDFFD8E8244BF4F400DADEB2 /* SCLAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
+		FDFFD8E9244BF4F400DADEB2 /* SCLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -548,6 +552,7 @@
 		FDD2FAA62443442800CF90D5 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				FDFFD8E7244BF4F400DADEB2 /* SCLAlertView */,
 				FDD2FAA7244349FF00CF90D5 /* WeScan */,
 			);
 			path = Lib;
@@ -648,6 +653,15 @@
 				FDD2FAE924434A0000CF90D5 /* CaptureSession+Focus.swift */,
 			);
 			path = Session;
+			sourceTree = "<group>";
+		};
+		FDFFD8E7244BF4F400DADEB2 /* SCLAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				FDFFD8E8244BF4F400DADEB2 /* SCLAlertView.swift */,
+				FDFFD8E9244BF4F400DADEB2 /* SCLExtensions.swift */,
+			);
+			path = SCLAlertView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -820,6 +834,7 @@
 				FDD2FAF124434A0000CF90D5 /* AVCaptureVideoOrientation+Utils.swift in Sources */,
 				FDEFC1FF244977FD00DD7971 /* ScanManager.swift in Sources */,
 				FDD2FAFD24434A0000CF90D5 /* EditScanCornerView.swift in Sources */,
+				FDFFD8EB244BF4F400DADEB2 /* SCLExtensions.swift in Sources */,
 				3475FDD1214EFE20008D57F9 /* DMNewSaleModel.swift in Sources */,
 				FDEFC1FD24488F8100DD7971 /* ShowListViewController.swift in Sources */,
 				34E434FA2157837B0097D6A3 /* DMSolicit.swift in Sources */,
@@ -857,6 +872,7 @@
 				3475FDCF214EFE20008D57F9 /* DMNewSolicitModel.swift in Sources */,
 				3442A1AD216249FC006B3BB5 /* DMDealerInfoViewController.swift in Sources */,
 				340AB5B3214D405600C7B2AC /* DMUserManager.swift in Sources */,
+				FDFFD8EA244BF4F400DADEB2 /* SCLAlertView.swift in Sources */,
 				FDD2FB1424434A0000CF90D5 /* CaptureSession+Orientation.swift in Sources */,
 				3448939B214D20D200667D1F /* DMLoginViewController.swift in Sources */,
 				34E43506215821EB0097D6A3 /* DMSolicitsCell.swift in Sources */,

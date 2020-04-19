@@ -40,7 +40,6 @@ class DMScanPDFProvider:NSObject {
     func scanImage() {
         let scannerViewController = ImageScannerController(delegate: self)
         scannerViewController.modalPresentationStyle = .fullScreen
-        scannerViewController.navigationBar.tintColor = .white
 
         guard let vc = focusVC else { return }
         vc.present(scannerViewController, animated: true)
@@ -83,6 +82,7 @@ extension DMScanPDFProvider: UIImagePickerControllerDelegate, UINavigationContro
         picker.dismiss(animated: true)
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             let scannerViewController = ImageScannerController(image: image, delegate: self)
+            scannerViewController.modalPresentationStyle = .fullScreen
             guard let vc = focusVC else { return }
             vc.present(scannerViewController, animated: true)
         }

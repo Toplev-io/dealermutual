@@ -62,9 +62,11 @@ public final class ImageScannerController: UINavigationController {
     }
     
     public required init(image: UIImage? = nil, delegate: ImageScannerControllerDelegate? = nil) {
-        super.init(rootViewController: ScannerViewController())
+        let scannerVC = ScannerViewController()
+        super.init(rootViewController: scannerVC)
         
         self.imageScannerDelegate = delegate
+        navigationBar.tintColor = .white
 //        
 //        if #available(iOS 13.0, *) {
 //            navigationBar.tintColor = .label
@@ -93,13 +95,13 @@ public final class ImageScannerController: UINavigationController {
                 VisionRectangleDetector.rectangle(forImage: ciImage, orientation: orientation!) { (quad) in
                     detectedQuad = quad?.toCartesian(withHeight: orientedImage.extent.height)
                     let editViewController = EditScanViewController(image: image, quad: detectedQuad, rotateImage: false)
-                    self.setViewControllers([editViewController], animated: true)
+                    self.setViewControllers([scannerVC, editViewController], animated: true)
                 }
             } else {
                 // Use the CIRectangleDetector on iOS 10 to attempt to find a rectangle from the initial image.
                 detectedQuad = CIRectangleDetector.rectangle(forImage: ciImage)?.toCartesian(withHeight: orientedImage.extent.height)
                 let editViewController = EditScanViewController(image: image, quad: detectedQuad, rotateImage: false)
-                setViewControllers([editViewController], animated: false)
+                setViewControllers([scannerVC, editViewController], animated: false)
             }
         }
     }

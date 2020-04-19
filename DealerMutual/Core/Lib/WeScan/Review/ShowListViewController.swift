@@ -72,6 +72,7 @@ final class ShowListViewController: UIViewController {
     }()
     
     private var pdfURL:URL?
+    private var selectedImages:[Int:UIImage] = [:]
     
     private lazy var doneButton: UIBarButtonItem = {
         let button = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(finishScan))
@@ -173,11 +174,14 @@ final class ShowListViewController: UIViewController {
         self.present(ac, animated: true, completion: nil)
     }
     
-    @objc func getPDFUrl() -> URL{
-        let fileName = "PDF_\(Int(Date().timeIntervalSince1970)).pdf"
+    @objc func getPDFUrl(_ name:String? = nil, _ images:[UIImage]? = nil) -> URL{
+        var fileName = "PDF_\(Int(Date().timeIntervalSince1970)).pdf"
+        if let name = name {
+            fileName = name
+        }
         let pdfURL = URL(fileURLWithPath: NSTemporaryDirectory().appending(fileName))
         do {
-            try PDFGenerator.generate(ScanManager.shared.scanPhoto, to: pdfURL)
+            try PDFGenerator.generate(images == nil ? ScanManager.shared.scanPhoto : images!, to: pdfURL)
         } catch (let error){
             print(error)
         }
@@ -204,13 +208,33 @@ final class ShowListViewController: UIViewController {
     @objc private func finishScan() {
         guard let imageScannerController = navigationController as? ImageScannerController else { return }
         
-        var newResults = results
-        if pdfURL == nil {
-            pdfURL = getPDFUrl()
+        let alert = SCLAlertView()
+        alert.appearance.showCloseButton = false
+        let txt = alert.addTextField("Enter PDF fileName")
+        alert.addButton("Create") {
+            var images = [UIImage]()
+            if self.selectedImages.count == 0 {
+                images = ScanManager.shared.scanPhoto
+            } else {
+                self.selectedImages.forEach {
+                    images.append($0.1)
+                }
+            }
+            var newResults = self.results
+            if let name = txt.text {
+                newResults.pdfURL = self.getPDFUrl("\(name).pdf", images)
+            }else{
+                newResults.pdfURL = self.getPDFUrl("PDF_\(Int(Date().timeIntervalSince1970)).pdf", images)
+            }
+            newResults.thumbImage = images[0]
+            imageScannerController.imageScannerDelegate?.imageScannerController(imageScannerController, didFinishScanningWithResults: newResults)
+            
         }
-        newResults.pdfURL = pdfURL!
-        newResults.thumbImage = ScanManager.shared.scanPhoto[0]
-        imageScannerController.imageScannerDelegate?.imageScannerController(imageScannerController, didFinishScanningWithResults: newResults)
+        
+        alert.addButton("Cancel") {
+            alert.dismiss(animated: true, completion: nil)
+        }
+        alert.showEdit("Create PDF", subTitle: nil, closeButtonTitle: "Cancel", colorStyle: SCLAlertViewStyle.dmCreatePDF.defaultColorInt)
     }
     
     @objc private func addScanFiles() {
@@ -237,6 +261,12 @@ extension ShowListViewController: UICollectionViewDelegate, UICollectionViewData
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! PhotoCell
         cell.imageView.image = ScanManager.shared.scanPhoto[indexPath.item]
         cell.textLabel.text = "\(indexPath.row + 1) Page"
+        if selectedImages[indexPath.row] != nil {
+            cell.imageView.layer.borderWidth = 2
+            cell.imageView.layer.borderColor = UIColor.orange.cgColor
+        } else {
+            cell.imageView.layer.borderWidth = 0
+        }
         return cell
     }
     
@@ -246,7 +276,11 @@ extension ShowListViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        
+        if selectedImages[indexPath.row] != nil {
+            selectedImages.removeValue(forKey: indexPath.row)
+        } else {
+            selectedImages[indexPath.row] = ScanManager.shared.scanPhoto[indexPath.item]
+        }
+        collectionView.reloadData()
     }
 }
