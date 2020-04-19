@@ -38,7 +38,36 @@ class DMShowScanFilesViewController: DMBaseViewController<DMShowScanFileModel> {
         pdfScanFilesCollectionView.delegate = self
         pdfScanFilesCollectionView.dataSource = self
         loadScanFiles()
+        
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
+        pdfScanFilesCollectionView.addGestureRecognizer(longPress)
     }
+    @objc func handleLongPress(sender: UILongPressGestureRecognizer){
+        if sender.state == UIGestureRecognizer.State.began {
+            let touchPoint = sender.location(in: pdfScanFilesCollectionView)
+            if let indexPath = pdfScanFilesCollectionView.indexPathForItem(at: touchPoint) {
+                self.deleteFile(with: indexPath.row)
+            }
+        }
+    }
+    
+    func deleteFile(with selectedIndex:Int){
+        
+        let alert = UIAlertController(title: "Opp", message: "Do you want to delete this File permanently?", preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
+            DMDatabaseManager.shared.deleteFile(self.scanFiles[selectedIndex]) { [weak self] (error) in
+                guard let strongSelf = self else { return }
+                strongSelf.loadScanFiles()
+            }
+        }
+        let noAction = UIAlertAction(title: "No", style: .default) { (action) in
+            
+        }
+        alert.addAction(yesAction)
+        alert.addAction(noAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
     private func loadScanFiles(){
         DMDatabaseManager.shared.fetchPDFScanningFiles() { [weak self] (files, error) in
             guard let strongSelf = self else { return }
@@ -136,16 +165,6 @@ class DMShowScanFilesViewController: DMBaseViewController<DMShowScanFileModel> {
                 }else{
                     DispatchQueue.main.async {
                         self.showPDFFile(url: url!)
-                                
-            //                    if let document = PDFDocument(url: url!) {
-            //                        let readerController = PDFViewController.createNew(with: document)
-            //                        readerController.navigationController?.view.backgroundColor = #colorLiteral(red: 0.1725490196, green: 0.5725490196, blue: 0.8509803922, alpha: 1)
-            //                        if #available(iOS 13.0, *) {
-            //                            self.navigationController?.pushViewController(readerController, animated: true)
-            //                        } else {
-            //                            self.present(readerController, animated: true, completion: nil)
-            //                        }
-            //                    }
                     }
                 }
             }
@@ -192,6 +211,7 @@ extension DMShowScanFilesViewController : UICollectionViewDelegate, UICollection
             let pdfURL = URL(string: pdfUrl)
             cell.fileNameLbl.text = pdfURL?.lastPathComponent
         }
+        cell.pagesLbl.text = "\(scanFile.pages)"
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

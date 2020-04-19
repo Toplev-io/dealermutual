@@ -11,5 +11,12 @@ import UIKit
 class DMScanFileCell: UICollectionViewCell {
     @IBOutlet weak var fileNameLbl: UILabel!
     @IBOutlet weak var scanImageView: UIImageView!
+    @IBOutlet weak var pagesLbl: UILabel!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+        pagesLbl.layer.cornerRadius = 15
+        pagesLbl.layer.masksToBounds = true
+    }
 }

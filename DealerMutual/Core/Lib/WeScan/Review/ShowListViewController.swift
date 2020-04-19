@@ -71,6 +71,8 @@ final class ShowListViewController: UIViewController {
         return cv
     }()
     
+    
+    var getPDFScan: ((_ image: UIImage, _ pdfURL: URL, _ pages:Int) -> ())?
     private var pdfURL:URL?
     private var selectedImages:[Int:UIImage] = [:]
     
@@ -105,19 +107,6 @@ final class ShowListViewController: UIViewController {
         return button
     }()
     
-    private let results: ImageScannerResults
-    
-    // MARK: - Life Cycle
-    
-    init(results: ImageScannerResults) {
-        self.results = results
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -128,6 +117,10 @@ final class ShowListViewController: UIViewController {
         title = NSLocalizedString("wescan.show.title", tableName: nil, bundle: Bundle(for: ReviewViewController.self), value: "Scanned files", comment: "The review title of the ShowListViewController")
         navigationItem.rightBarButtonItems = [doneButton, shareButton]
         navigationItem.leftBarButtonItem = cancelButton
+        
+        if ScanManager.shared.scanPhoto.count == 0 {
+            addScanFiles()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -166,6 +159,9 @@ final class ShowListViewController: UIViewController {
     }
     
     @objc func sharePDF() {
+        guard ScanManager.shared.scanPhoto.count != 0 else {
+            return
+        }
         if pdfURL == nil {
             pdfURL = getPDFUrl()
         }
@@ -193,8 +189,7 @@ final class ShowListViewController: UIViewController {
         let actionSheet = UIAlertController(title: "Are you sure to cancel?", message: nil, preferredStyle: .alert)
         
         let yesAction = UIAlertAction(title: "Yes", style: .default) { (_) in
-            guard let imageScannerController = self.navigationController as? ImageScannerController else { return }
-            imageScannerController.dismiss(animated: true, completion: nil)
+            self.navigationController?.popViewController(animated: true)
         }
         
         let cancelAction = UIAlertAction(title: "No", style: .default) { (_) in
@@ -206,8 +201,10 @@ final class ShowListViewController: UIViewController {
         self.present(actionSheet, animated: true)
     }
     @objc private func finishScan() {
-        guard let imageScannerController = navigationController as? ImageScannerController else { return }
-        
+        guard ScanManager.shared.scanPhoto.count != 0 else {
+            self.navigationController?.popViewController(animated: true)
+            return
+        }
         let alert = SCLAlertView()
         alert.appearance.showCloseButton = false
         let txt = alert.addTextField("Enter PDF fileName")
@@ -220,15 +217,16 @@ final class ShowListViewController: UIViewController {
                     images.append($0.1)
                 }
             }
-            var newResults = self.results
+            var pdfURL = URL(string: "")
             if let name = txt.text {
-                newResults.pdfURL = self.getPDFUrl("\(name).pdf", images)
+                pdfURL = self.getPDFUrl("\(name).pdf", images)
             }else{
-                newResults.pdfURL = self.getPDFUrl("PDF_\(Int(Date().timeIntervalSince1970)).pdf", images)
+                pdfURL = self.getPDFUrl("PDF_\(Int(Date().timeIntervalSince1970)).pdf", images)
             }
-            newResults.thumbImage = images[0]
-            imageScannerController.imageScannerDelegate?.imageScannerController(imageScannerController, didFinishScanningWithResults: newResults)
-            
+            if let getPDFScan = self.getPDFScan {
+                getPDFScan(images[0], pdfURL!, images.count)
+            }
+            self.navigationController?.popViewController(animated: true)
         }
         
         alert.addButton("Cancel") {
@@ -238,12 +236,15 @@ final class ShowListViewController: UIViewController {
     }
     
     @objc private func addScanFiles() {
-        guard let imageScannerController = navigationController as? ImageScannerController else { return }
-        let vcs = imageScannerController.viewControllers
-        if vcs.count > 3 {
-            let cameraScanVC = vcs[vcs.count - 4]
-            imageScannerController.popToViewController(cameraScanVC, animated: true)
+        DMScanPDFProvider.shared.getImagePDFScan(vc: self).getPDFScan = {
+            self.collectionView.reloadData()
         }
+//        guard let imageScannerController = navigationController as? ImageScannerController else { return }
+//        let vcs = imageScannerController.viewControllers
+//        if vcs.count > 3 {
+//            let cameraScanVC = vcs[vcs.count - 4]
+//            imageScannerController.popToViewController(cameraScanVC, animated: true)
+//        }
     }
 }
 

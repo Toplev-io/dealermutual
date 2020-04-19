@@ -179,11 +179,8 @@ final class ReviewViewController: UIViewController {
         newResults.enhancedScan?.rotate(by: rotationAngle)
         newResults.doesUserPreferEnhancedScan = isCurrentlyDisplayingEnhancedImage
         ScanManager.shared.scanPhoto.append(newResults.croppedScan.image.scaledImage(scaleFactor: 0.5)!)
-        
-        let showListVC = ShowListViewController(results: newResults)
-        navigationController?.pushViewController(showListVC, animated: true)
-        
-        
+
+        imageScannerController.imageScannerDelegate?.imageScannerController(imageScannerController, didFinishScanningWithResults: newResults)
     }
 
 }

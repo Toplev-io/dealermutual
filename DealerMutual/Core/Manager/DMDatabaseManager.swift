@@ -10,6 +10,7 @@ import UIKit
 import Foundation
 import Firebase
 import FirebaseFirestore
+import FirebaseStorage
 
 typealias AddPDFScanningFileCompletionHandler = (DMPDFScanningFile?, Error?) -> Void
 typealias FetchPDFScanningFilesCompletionHandler = ([DMPDFScanningFile]?, Error?) -> Void
@@ -54,10 +55,27 @@ internal final class DMDatabaseManager {
             for child in snap {
                 guard let sessionsDict = child.value as? [String: Any] else { continue }
                 if let scanFile = DMPDFScanningFile(JSON: sessionsDict) {
+                    scanFile.scanID = child.key
                     scanFiles.append(scanFile)
                 }
             }
             completionHandler?(scanFiles, nil)
+        }
+    }
+    func deleteFile(_ file: DMPDFScanningFile, completionHandler: DeletePDFScanningFileCompletionHandler? = nil){
+        guard let currentUserID = Auth.auth().currentUser?.uid else { return }
+        guard currentUserID.count > 0 else { return }
+        Database.database().reference().child("\(PDFScannings)/\(currentUserID)/\(file.scanID)").removeValue { (error, dbRef) in
+            if let imageURL = file.imageUrl {
+                Storage.storage().reference().child(imageURL).delete()
+            }
+            if let pdfURL = file.pdfURL {
+                let url = URL(string: pdfURL)
+                Storage.storage().reference().child(String((url?.lastPathComponent.split(separator: "?")[0])!)).delete()
+            }
+            if let complete = completionHandler {
+                complete(error)
+            }
         }
     }
     

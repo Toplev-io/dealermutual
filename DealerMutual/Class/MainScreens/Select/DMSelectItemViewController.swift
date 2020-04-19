@@ -80,7 +80,8 @@ extension DMSettingInterface where Self: UIViewController {
     }
     
     func wrapShowScaning(_ vc: UIViewController) {
-        DMScanPDFProvider.shared.getImagePDFScan(vc: vc).getPDFScan = { image, pdfUrl in
+        let showListVC = ShowListViewController()
+        showListVC.getPDFScan = { image, pdfUrl, pages in
             print("got image")
             
             guard let bucketImageKey  = shareImageBucketKey() else {
@@ -123,7 +124,7 @@ extension DMSettingInterface where Self: UIViewController {
                       strongSelf.showAlert(error.localizedDescription)
                         return
                     }
-                    let pdfFile = DMPDFScanningFile.init(JSON: ["pdfURL": pdfURL ?? "", "imageUrl": photoURL ])
+                    let pdfFile = DMPDFScanningFile.init(JSON: ["pdfURL": pdfURL ?? "", "imageUrl": photoURL, "pages": pages ])
                     DMDatabaseManager.shared.addPDFScanningFile (pdfFile!) { [weak self] (share, error) in
                         hud.hide(animated: true)
                         guard self != nil else { return }
@@ -136,6 +137,7 @@ extension DMSettingInterface where Self: UIViewController {
                 }
             }
         }
+        vc.navigationController?.pushViewController(showListVC, animated: true)
     }
     func showAlert(_ title: String, message: String? = nil, actionTitle: String = "OK", completionHandler: (() -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

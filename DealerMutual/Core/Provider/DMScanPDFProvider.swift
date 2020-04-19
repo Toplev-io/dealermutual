@@ -11,7 +11,7 @@ import UIKit
 class DMScanPDFProvider:NSObject {
     static let shared = DMScanPDFProvider()
     var focusVC: UIViewController?
-    var getPDFScan: ((_ image: UIImage, _ pdfURL: URL) -> ())?
+    var getPDFScan: (() -> ())?
     
     func getImagePDFScan(vc: UIViewController) -> DMScanPDFProvider {
         focusVC = vc
@@ -62,7 +62,7 @@ extension DMScanPDFProvider: ImageScannerControllerDelegate {
     func imageScannerController(_ scanner: ImageScannerController, didFinishScanningWithResults results: ImageScannerResults) {
         scanner.dismiss(animated: true) {
             if let getPDFScan = self.getPDFScan {
-                getPDFScan(results.thumbImage, results.pdfURL)
+                getPDFScan()
             }
         }
     }

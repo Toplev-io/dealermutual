@@ -18,6 +18,8 @@ class DMPDFScanningFile: Mappable {
     var ownerID: String = ""
     var imageUrl: String?
     var pdfURL: String?
+    var pages: Int = 0
+    
     
     required init?(map: Map) {
     }
@@ -27,5 +29,6 @@ class DMPDFScanningFile: Mappable {
         ownerID <- map["ownerID"]
         imageUrl <- map["imageUrl"]
         pdfURL <- map["pdfURL"]
+        pages <- map["pages"]
     }
 }
